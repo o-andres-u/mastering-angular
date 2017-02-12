@@ -1,4 +1,9 @@
-class Car {
+interface BaseCar {
+  getModel() : string;
+  getSpeed() : number;
+}
+
+class Car implements BaseCar{
   public color : string;
   public model : string;
   public speed : number;
