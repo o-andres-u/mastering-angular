@@ -30,3 +30,11 @@ if (a === 7) {
 }
 
 console.log("Outside if: " + a + " - " + b); // Outside if: 7 - 1
+
+
+// Functions & typos
+function returnNumber(num:number):string {
+  return "Number: " + num;
+}
+
+alert(returnNumber(25));

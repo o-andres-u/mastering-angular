@@ -21,3 +21,8 @@ if (a === 7) {
     console.log("Inside if: " + a_1 + " - " + b); // Inside if: 4 - 1
 }
 console.log("Outside if: " + a + " - " + b); // Outside if: 7 - 1
+// Functions & typos
+function returnNumber(num) {
+    return "Number: " + num;
+}
+alert(returnNumber(25));
