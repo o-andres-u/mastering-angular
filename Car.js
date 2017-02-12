@@ -1,12 +1,26 @@
 var Car = (function () {
-    function Car() {
+    function Car(model) {
+        if (model === void 0) { model = null; }
+        this.color = "White";
         this.speed = 0;
+        if (model == null) {
+            this.model = "BMW Generic";
+        }
+        else {
+            this.model = model;
+        }
     }
     Car.prototype.getColor = function () {
         return this.color;
     };
     Car.prototype.setColor = function (color) {
         this.color = color;
+    };
+    Car.prototype.getModel = function () {
+        return this.model;
+    };
+    Car.prototype.setModel = function (model) {
+        this.model = model;
     };
     Car.prototype.speedUp = function () {
         this.speed++;
@@ -19,18 +33,12 @@ var Car = (function () {
     };
     return Car;
 }());
-var car = new Car();
-var car_two = new Car();
-var car_three = new Car();
-car.setColor("Red");
-car_two.setColor("Blue");
-car_three.setColor("Green");
+var car = new Car("Ferrari");
 car.speedUp();
 car.speedUp();
 car.speedUp();
-console.log("The color of the car 1 is: " + car.getColor());
-console.log("The color of the car 1 is: " + car_two.getColor());
-console.log("The color of the car 1 is: " + car_three.getColor());
-console.log("The velocity of the car 1 is: " + car.getSpeed());
+console.log("The color of the car is: " + car.getColor());
+console.log("The velocity of the car is: " + car.getSpeed());
 car["break"]();
-console.log("The velocity of the car 1 after break is: " + car.getSpeed());
+console.log("The velocity of the car after break is: " + car.getSpeed());
+console.log("The model of the car is: " + car.getModel());
