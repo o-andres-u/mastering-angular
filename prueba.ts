@@ -8,7 +8,7 @@ var resultado = sayHelloWorld(myName);
 var etiqueta = <HTMLElement>document.getElementById("container")
 etiqueta.innerHTML = resultado;
 
-//Variables y tiposs
+// Variables & typos
 var otherName:string = "Oscar Andrés Úsuga";
 var edad:number = 20;
 var coder:boolean = true;
@@ -19,4 +19,14 @@ anything = "Jajaja";
 
 etiqueta.innerHTML = otherName + " - " + edad;
 
-alert("Hola Mundo Alert");
+var a = 7;
+var b = 12;
+
+if (a === 7) {
+  let a = 4;
+  var b = 1;
+
+  console.log("Inside if: " + a + " - " + b); // Inside if: 4 - 1
+}
+
+console.log("Outside if: " + a + " - " + b); // Outside if: 7 - 1
