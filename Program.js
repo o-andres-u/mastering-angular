@@ -1,41 +1,28 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var Program = (function () {
-    function Program() {
-    }
-    Program.prototype.setName = function (name) {
+class Program {
+    setName(name) {
         this.name = name;
-    };
-    Program.prototype.setVersion = function (version) {
-        this.version = version;
-    };
-    Program.prototype.getName = function () {
-        return this.name;
-    };
-    Program.prototype.getVersion = function () {
-        return this.version;
-    };
-    return Program;
-}());
-var VideoEditor = (function (_super) {
-    __extends(VideoEditor, _super);
-    function VideoEditor() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    VideoEditor.prototype.setTimeline = function (timeline) {
+    setVersion(version) {
+        this.version = version;
+    }
+    getName() {
+        return this.name;
+    }
+    getVersion() {
+        return this.version;
+    }
+}
+class VideoEditor extends Program {
+    setTimeline(timeline) {
         this.timeline = timeline;
-    };
-    VideoEditor.prototype.getTimeline = function () {
+    }
+    getTimeline() {
         return this.timeline;
-    };
-    VideoEditor.prototype.getAllData = function () {
+    }
+    getAllData() {
         return this.getName() + " - " + this.getVersion() + " - " + this.getTimeline();
-    };
-    return VideoEditor;
-}(Program));
+    }
+}
 var editor = new VideoEditor();
 editor.setVersion(1);
 editor.setName("VLC");
@@ -56,3 +43,15 @@ function save() {
     _list.innerHTML = list;
     document.getElementById("programName").value = "";
 }
+setInterval(() => {
+    console.log("Bazofia");
+}, 1000);
+var fruits = [
+    'Apple',
+    'Orange',
+    'Banana'
+];
+var recorrer = fruits.map(fruit => {
+    console.log(fruit);
+    console.log(fruit.length);
+});

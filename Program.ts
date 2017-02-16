@@ -68,3 +68,18 @@ function save() {
 
   (<HTMLInputElement> document.getElementById("programName")).value = "";
 }
+
+setInterval(() => {
+  console.log("Bazofia");
+}, 1000);
+
+var fruits = [
+  'Apple',
+  'Orange',
+  'Banana'
+];
+
+var recorrer = fruits.map(fruit => {
+  console.log(fruit);
+  console.log(fruit.length);
+});
