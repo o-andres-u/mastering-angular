@@ -8,3 +8,7 @@
     <li><b>Director:</b> {{pelicula.director}}</li>
     <li><b>Año:</b> {{pelicula.anio}}</li>
 </ul>
+
+<p>
+    Cambiar titulo: <input type="text" (keyup)="debug()" [(ngModel)]="pelicula.titulo"/>
+</p>
