@@ -25,7 +25,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.pelicula = "Batman vs Superman";
                     this.director = "Zack Snider";
                     this.anio = 2016;
+                    //this.holaMundo();
                 }
+                AppComponent.prototype.holaMundo = function () {
+                    alert("Pelicula: " + this.pelicula + " - Director: " + this.director + " - Año: " + this.anio);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
