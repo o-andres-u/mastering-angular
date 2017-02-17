@@ -4,7 +4,6 @@ export module Comics {
 
     export interface IHeroe {
         luchar(): void;
-        correr(): void;
         salvar(): void;
         disparar(): void;
     }
@@ -17,11 +16,9 @@ export module Comics {
             }
             this.nivelEtica = nivelEtica;
         }
+        //get y set NivelEica
         luchar(): void {
             console.log("Luchando");
-        }
-        correr(): void {
-            console.log("Corriendo");
         }
         abstract salvar(): void;
         abstract disparar(): void;
@@ -182,9 +179,9 @@ export module Comics {
             }
         }
 
-        export class Xavier extends HeroeCorredor implements IHeroe {
+        export class Xavier extends Heroe implements IHeroe {
             constructor() {
-                super(40);
+                super(100);
             }
             salvar(): void {
                 console.log("Salvando");
