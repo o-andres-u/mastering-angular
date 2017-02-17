@@ -14,8 +14,8 @@ import {Component} from 'angular2/core';
  
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent {
-    public titulo = "Peliculas con Angular 2";
-    pelicula = "Batman vs Superman";
-    director = "Zack Snider";
-    anio = 2016;
+    public titulo:string = "Peliculas con Angular 2";
+    public pelicula:string = "Batman vs Superman";
+    public director:string = "Zack Snider";
+    public anio:number = 2016;
 }
