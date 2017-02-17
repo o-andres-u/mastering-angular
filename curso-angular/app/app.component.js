@@ -29,7 +29,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>{{titulo}}</h1>\n                <ul>\n                    <li><b>Titulo:</b> {{pelicula}}</li>\n                    <li><b>Director:</b> {{director}}</li>\n                    <li><b>A\u00F1o:</b> {{anio}}</li>\n                </ul>"
+                        templateUrl: 'app/view/peliculas.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
