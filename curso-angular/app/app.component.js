@@ -33,8 +33,9 @@ System.register(['angular2/core', './model/pelicula'], function(exports_1, conte
                 };
                 AppComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        templateUrl: 'app/view/peliculas.html'
+                        selector: "my-app",
+                        templateUrl: "app/view/peliculas.html",
+                        styleUrls: ["../assets/css/styles.css"]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
