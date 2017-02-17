@@ -1,6 +1,7 @@
 // Importar el núcleo de Angular
 import {Component} from 'angular2/core';
- 
+import {Pelicula} from './model/pelicula';
+
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component({
     selector: 'my-app',
@@ -10,18 +11,14 @@ import {Component} from 'angular2/core';
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent {
     public titulo:string = "Peliculas con Angular 2";
-    public pelicula:string;
-    public director:string;
-    public anio:number;
+    public pelicula:Pelicula;
 
     constructor() {
-        this.pelicula = "Batman vs Superman";
-        this.director = "Zack Snider";
-        this.anio = 2016;
-        //this.holaMundo();
+        this.pelicula = new Pelicula(1, "Batman vs Superman", "Zack Snider", 2016);
+        this.debug();
     }
 
-    holaMundo() {
-        alert("Pelicula: " + this.pelicula + " - Director: " + this.director + " - Año: " + this.anio);
+    debug() {
+        console.log(this.pelicula);
     }
 }
