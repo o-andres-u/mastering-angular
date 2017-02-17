@@ -13,10 +13,16 @@ import {Pelicula} from './model/pelicula';
 export class AppComponent {
     public titulo:string = "Peliculas con Angular 2";
     public pelicula:Pelicula;
+    public mostrarDatos:boolean;
 
     constructor() {
+        this.mostrarDatos = false;
         this.pelicula = new Pelicula(1, "Batman vs Superman", "Zack Snider", 2016);
         this.debug();
+    }
+
+    onShowHideMostrarDatos(mostrar:boolean) {
+        this.mostrarDatos = mostrar;
     }
 
     debug() {
