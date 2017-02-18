@@ -7,3 +7,16 @@ h1 {
 .showingData {
     display: none;
 }
+
+.pelicula-poiner {
+    cursor: pointer;
+}
+.pelicula-poiner:hover {
+    text-decoration: underline;
+}
+
+.clicked {
+    font-size: 20px;
+    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+}
