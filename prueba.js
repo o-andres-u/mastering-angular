@@ -16,9 +16,9 @@ etiqueta.innerHTML = otherName + " - " + edad;
 var a = 7;
 var b = 12;
 if (a === 7) {
-    let a = 4;
+    var a_1 = 4;
     var b = 1;
-    console.log("Inside if: " + a + " - " + b); // Inside if: 4 - 1
+    console.log("Inside if: " + a_1 + " - " + b); // Inside if: 4 - 1
 }
 console.log("Outside if: " + a + " - " + b); // Outside if: 7 - 1
 // Functions & typos

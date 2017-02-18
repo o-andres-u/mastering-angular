@@ -1,5 +1,6 @@
-class Car {
-    constructor(model = null) {
+var Car = (function () {
+    function Car(model) {
+        if (model === void 0) { model = null; }
         this.color = "White";
         this.speed = 0;
         if (model == null) {
@@ -9,28 +10,29 @@ class Car {
             this.model = model;
         }
     }
-    getColor() {
+    Car.prototype.getColor = function () {
         return this.color;
-    }
-    setColor(color) {
+    };
+    Car.prototype.setColor = function (color) {
         this.color = color;
-    }
-    getModel() {
+    };
+    Car.prototype.getModel = function () {
         return this.model;
-    }
-    setModel(model) {
+    };
+    Car.prototype.setModel = function (model) {
         this.model = model;
-    }
-    speedUp() {
+    };
+    Car.prototype.speedUp = function () {
         this.speed++;
-    }
-    break() {
+    };
+    Car.prototype.break = function () {
         this.speed--;
-    }
-    getSpeed() {
+    };
+    Car.prototype.getSpeed = function () {
         return this.speed;
-    }
-}
+    };
+    return Car;
+}());
 var car = new Car("Ferrari");
 car.speedUp();
 car.speedUp();

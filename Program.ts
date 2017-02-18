@@ -1,3 +1,12 @@
+function arranque(lanzar: string) {
+  return function(target: Function) {
+    target.prototype.lanzamiento = function() : void {
+      console.log(lanzar);
+    }
+  }
+}
+
+@arranque('Lanzamiento del curso de Angular')
 class Program {
 
   public name:string;
@@ -20,6 +29,9 @@ class Program {
   }
 
 }
+
+var programa = new Program();
+programa.lanzamiento();
 
 class VideoEditor extends Program {
 
