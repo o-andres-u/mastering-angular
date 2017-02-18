@@ -1,0 +1,12 @@
+var Terminator = Cyborg.Terminator;
+var load_terminator = Terminator.getTarget();
+console.log("Printing Terminator");
+console.log(load_terminator);
+var Minotaurus = Mitology.Minotaurus;
+var load_minotaurus = new Minotaurus("Power and strenght");
+console.log('Printing Minotaurus|');
+console.log(load_minotaurus.description);
+var Centaurus = Mitology.Centaurus;
+var load_centaurus = new Centaurus("Brutality");
+console.log('Printing Centaurus');
+console.log(load_centaurus.getDescription());

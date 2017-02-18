@@ -48,7 +48,7 @@ class Program {
 }
 
 var programa = new Program();
-programa.lanzamiento();
+// programa.lanzamiento();
 
 class VideoEditor extends Program {
 

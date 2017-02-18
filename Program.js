@@ -58,7 +58,7 @@ Program = __decorate([
     arranque('Lanzamiento del curso de Angular')
 ], Program);
 var programa = new Program();
-programa.lanzamiento();
+// programa.lanzamiento();
 var VideoEditor = (function (_super) {
     __extends(VideoEditor, _super);
     function VideoEditor() {
