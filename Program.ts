@@ -1,3 +1,20 @@
+module Tienda {
+  export class Ropa {
+    constructor(public titulo: string) {
+      alert(titulo);
+    }
+  }
+
+  export class Informatica {
+    constructor(public titulo: string) {
+      alert('Tienda de tecnología: ' + titulo);
+    }
+  }
+}
+
+import Informatica = Tienda.Informatica;
+let cargar_informatica = new Informatica('supertienda');
+
 function arranque(lanzar: string) {
   return function(target: Function) {
     target.prototype.lanzamiento = function() : void {
@@ -81,9 +98,9 @@ function save() {
   (<HTMLInputElement> document.getElementById("programName")).value = "";
 }
 
-setInterval(() => {
-  console.log("Bazofia");
-}, 1000);
+// setInterval(() => {
+//   console.log("Bazofia");
+// }, 1000);
 
 var fruits = [
   'Apple',
