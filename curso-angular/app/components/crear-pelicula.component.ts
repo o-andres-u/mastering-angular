@@ -12,6 +12,7 @@ import {PeliculasService} from  "../services/peliculas.service";
 // Clase del componente donde iran los datos y funcionalidades
 export class CrearPeliculaComponent implements OnInit {
     public tituloPelicula:string = "";
+    public nuevaPelicula: Pelicula;
 
     constructor(private _peliculasService: PeliculasService, 
                 private _router:Router,
@@ -20,11 +21,11 @@ export class CrearPeliculaComponent implements OnInit {
 
     ngOnInit():any {
         this.tituloPelicula = this._routeParams.get("titulo");
+        this.nuevaPelicula = new Pelicula(0, this._routeParams.get("titulo"), this._routeParams.get("director"), this._routeParams.get("anio"));
     }
 
-    onCrearPelicula(titulo: string, director: string, anio:number) {
-        let pelicula: Pelicula = new Pelicula(77, titulo, director, anio);
-        this._peliculasService.insertPelicula(pelicula);
+    onSubmit() {
+        this._peliculasService.insertPelicula(this.nuevaPelicula);
         this._router.navigate(["Peliculas"]);
     }
 }

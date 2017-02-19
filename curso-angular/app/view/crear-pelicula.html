@@ -1,14 +1,19 @@
 <h2>Crear Pelicula</h2>
-<p>
-    Titulo:
-    <input type="text" #titulo value="{{tituloPelicula}}" />
-</p>
-<p>
-    Director:
-    <input type="text" #director />
-</p>
-<p>
-    Año:
-    <input type="text" #anio />
-</p>
-<input type="submit" value="Crear Pelicula" (click)="onCrearPelicula(titulo.value, director.value, anio.value)" />
+<form #miFormulario="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+        Titulo:
+        <input type="text" #titulo="ngForm" ngControl="titulo" [(ngModel)]="nuevaPelicula.titulo" required minlength="5"/>
+        <span *ngIf="!titulo.valid">No Valido</span>
+    </p>
+    <p>
+        Director:
+        <input type="text" #director="ngForm" ngControl="director" [(ngModel)]="nuevaPelicula.director" required pattern="[ a-zA-Z]*"/>
+        <span *ngIf="!director.valid">No Valido</span>
+    </p>
+    <p>
+        Año:
+        <input type="text" #anio="ngForm" ngControl="anio" [(ngModel)]="nuevaPelicula.anio" required pattern="[0-9]*" minlength="4" maxlength="4" />
+        <span *ngIf="!anio.valid">No Valido</span>
+    </p>
+    <input type="submit" value="Crear Pelicula" [disabled]="!miFormulario.valid"/>
+</form>

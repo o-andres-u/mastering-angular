@@ -17,7 +17,7 @@ import {ROUTER_DIRECTIVES, RouteConfig, Router} from 'angular2/router';
     {path: "/peliculas", name: "Peliculas", component: PeliculasListComponent, useAsDefault: true },
     {path: "/contacto", name: "Contacto", component: ContactoComponent },
     {path: "/crearPelicula", name: "CrearPelicula", component: CrearPeliculaComponent },
-    {path: "/crearPelicula/:titulo", name: "CrearPeliculaBasadaEnOtra", component: CrearPeliculaComponent }
+    {path: "/crearPelicula/:titulo/:director/:anio", name: "CrearPeliculaBasadaEnOtra", component: CrearPeliculaComponent }
 ]) 
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent {
