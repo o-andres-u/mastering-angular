@@ -1,11 +1,13 @@
 // Importar el núcleo de Angular
 import {Component} from 'angular2/core';
 import {Pelicula} from '../model/pelicula';
+import {PeliculasService} from  "../services/peliculas.service";
 
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component({
     selector: "peliculas-list",
-    templateUrl: "app/view/peliculas-list.html"
+    templateUrl: "app/view/peliculas-list.html",
+    providers: [PeliculasService]
 })
  
 // Clase del componente donde iran los datos y funcionalidades
@@ -15,20 +17,11 @@ export class PeliculasListComponent {
     public mostrarDatos:boolean;
     public peliculas:Array<Pelicula>;
 
-    constructor() {
+    constructor(private _peliculasService: PeliculasService) {
         this.mostrarDatos = false;
-        this.pelicula = new Pelicula(1, "Batman vs Superman", "Zack Snider", 2016);
         
-        this.peliculas = [
-            this.pelicula,
-            new Pelicula(2, "La verdad duele", "Will Smith", 2016),
-            new Pelicula(3, "El señor de los anillos", "Desconocido", 2004),
-            new Pelicula(4, "Una historia real", "El de superaliados", 2015),
-            new Pelicula(5, "Don Jon", "Josep Gordon Levit", 2014),
-            new Pelicula(6, "Jhon", "No se", 0)
-        ]
-
-        this.debug();
+        this.peliculas = this._peliculasService.getPeliculas();
+        this.pelicula = this.peliculas[0];
     }
 
     onShowHideMostrarDatos(mostrar:boolean) {
