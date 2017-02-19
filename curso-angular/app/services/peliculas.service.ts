@@ -7,4 +7,8 @@ export class PeliculasService {
     getPeliculas(): Pelicula[] {
         return PELICULAS;
     }
+
+    insertPelicula(pelicula: Pelicula): void {
+        Promise.resolve(PELICULAS).then((peliculas:Pelicula[]) => peliculas.push(pelicula));
+    }
 }
