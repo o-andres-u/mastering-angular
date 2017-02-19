@@ -20,6 +20,7 @@
             <li [class.clicked]="peliculaElegida == pelicula"><b>Titulo:</b> {{pelicula.titulo}}</li>
             <li><b>Director:</b> {{pelicula.director}}</li>
             <li *ngIf="pelicula.anio"><b>Año:</b> {{pelicula.anio}}</li>
+            <li><a [routerLink]="['CrearPeliculaBasadaEnOtra', {titulo: pelicula.titulo}]">Añadir pelicula basada en esta</a></li>
         </ul>
     </li>
 </ul>
