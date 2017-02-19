@@ -21,7 +21,7 @@ export class CrearPeliculaComponent implements OnInit {
 
     ngOnInit():any {
         this.tituloPelicula = this._routeParams.get("titulo");
-        this.nuevaPelicula = new Pelicula(0, this._routeParams.get("titulo"), this._routeParams.get("director"), this._routeParams.get("anio"));
+        this.nuevaPelicula = new Pelicula(0, this._routeParams.get("titulo"), this._routeParams.get("director"), parseInt(this._routeParams.get("anio")));
     }
 
     onSubmit() {
