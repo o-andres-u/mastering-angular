@@ -12,9 +12,9 @@ import {Component} from "angular2/core";
 
 export class AppComponent {
 
-  public title = "Terminator Concept";
-  public target = "John Connor";
-  public weapon = "Shotgun";
-  public bullets = 1000;
+  public title : string = "Terminator Concept";
+  public target : string = "John Connor";
+  public weapon : string = "Shotgun";
+  public bullets : number = 1000;
 
 }
