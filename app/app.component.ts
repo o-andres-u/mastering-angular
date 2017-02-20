@@ -1,4 +1,5 @@
 import {Component} from "angular2/core";
+import {Terminator} from "./model/Terminator";
 
 @Component({
   selector: "terminator-app",
@@ -8,22 +9,15 @@ import {Component} from "angular2/core";
 export class AppComponent {
 
   public title : string;
-  public manufacturer : string;
-  public model : string;
-  public class : string;
-  public manufacturingYear : number;
+  public terminator : Terminator;
 
   constructor() {
-    this.title = "Terminator";
-    this.manufacturer = "Skynet";
-    this.model = "T-800";
-    this.class = "Cybernetic organism";
-    this.manufacturingYear = 2017;
-    this.destroyT1000()
+    this.terminator = new Terminator(123456789, "Skynet", "T-800", "Cybernetic organism", 2017);
+    this.debug();
   }
 
-  destroyT1000() {
-    alert("Hasta la vista, baby!");
+  debug() {
+    console.log(this.terminator);
   }
 
 }
