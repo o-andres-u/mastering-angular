@@ -7,10 +7,23 @@ import {Component} from "angular2/core";
 
 export class AppComponent {
 
-  public title : string = "Terminator";
-  public manufacturer : string = "Skynet";
-  public model : string = "T-800";
-  public class : string = "Cybernetic organism";
-  public manufacturingYear : number = 2017;
+  public title : string;
+  public manufacturer : string;
+  public model : string;
+  public class : string;
+  public manufacturingYear : number;
+
+  constructor() {
+    this.title = "Terminator";
+    this.manufacturer = "Skynet";
+    this.model = "T-800";
+    this.class = "Cybernetic organism";
+    this.manufacturingYear = 2017;
+    this.destroyT1000()
+  }
+
+  destroyT1000() {
+    alert("Hasta la vista, baby!");
+  }
 
 }
