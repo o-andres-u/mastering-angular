@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     template: `
         <div>
             <h1>Angular2: Getting Started</h1>
-            <div>My Firt Component</div>
+            <pm-products></pm-products>
         </div>
     `
 })
