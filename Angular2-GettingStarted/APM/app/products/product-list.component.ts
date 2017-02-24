@@ -5,5 +5,5 @@ import { Component } from "@angular/core";
     templateUrl: "app/products/product-list.component.html"
 })
 export class ProductListComponent {
-
+    pageTitle: string = "Product List";
 }
