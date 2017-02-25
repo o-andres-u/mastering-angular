@@ -1,6 +1,9 @@
 <h1>{{title}}</h1>
 <p>Especificaciones</p>
-<ul>
+
+<button (click)="showHideSpecifications(true)" [class.showingData]="showSpecs === true">Mostrar especificaciones</button>
+<button (click)="showHideSpecifications(false)" [class.showingData]="showSpecs === false">Ocultar especificaciones</button>
+<ul *ngIf="showSpecs === true">
   <li>Fabricante: <strong>{{terminator.manufacturer}}</strong></li>
   <li>Modelo: <strong>{{terminator.model}}</strong></li>
   <li>Clase: <strong>{{terminator.robotClass}}</strong></li>

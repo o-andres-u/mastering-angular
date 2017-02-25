@@ -11,10 +11,16 @@ export class AppComponent {
 
   public title : string;
   public terminator : Terminator;
+  private showSpecs : boolean;
 
   constructor() {
     this.terminator = new Terminator(123456789, "Skynet", "T-800", "Cybernetic organism", 2017);
     this.title = "Terminator";
+    this.showSpecs = false;
   }
-  
+
+  showHideSpecifications(value) {
+    this.showSpecs = value;
+  }
+
 }

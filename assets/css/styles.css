@@ -14,3 +14,7 @@ ul {
   font-family: Tahoma;
   text-decoration: line-through;
 }
+
+.showingData {
+  display: none;
+}
