@@ -1,0 +1,16 @@
+h1 {
+  font-family: Arial, Helvetica;
+  color: #444;
+  text-decoration: underline;
+}
+
+p {
+  font-family: Arial;
+  color: #333;
+  text-decoration: inherit;;
+}
+
+ul {
+  font-family: Tahoma;
+  text-decoration: line-through;
+}
