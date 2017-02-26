@@ -1,4 +1,6 @@
 {
   "name": "ionic-sidemenu-app",
-  "app_id": "34ef1ade"
+  "app_id": "4a15bea7",
+  "v2": true,
+  "typescript": true
 }
