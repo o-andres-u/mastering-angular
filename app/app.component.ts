@@ -24,12 +24,11 @@ export class AppComponent {
   }
 
   onKeyPress(opcional = null) {
-    // if (opcional == null) {
-    //   console.log(this.terminator);
-    // } else {
-    //   console.log(this.terminator.manufacturer);
-    // }
-    console.log(opcional);
+    if (opcional == null) {
+      console.log(this.terminator);
+    } else {
+      console.log(this.terminator.manufacturer);
+    }
   }
 
 }
