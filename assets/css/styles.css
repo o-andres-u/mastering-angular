@@ -1,7 +1,6 @@
 h1 {
   font-family: Arial, Helvetica;
   color: #444;
-  text-decoration: underline;
 }
 
 p {
@@ -12,9 +11,18 @@ p {
 
 ul {
   font-family: Tahoma;
-  text-decoration: line-through;
 }
 
 .showingData {
   display: none;
+}
+
+.robot-model:hover {
+  text-decoration: underline;
+}
+
+.clicked {
+  font-size: 20px;
+  color: green;
+  font-family: Arial;
 }

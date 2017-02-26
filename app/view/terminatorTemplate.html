@@ -1,27 +1,4 @@
 <h1>{{title}}</h1>
-<p>Especificaciones</p>
 
-<button (click)="showHideSpecifications(true)" [class.showingData]="showSpecs === true">Mostrar especificaciones</button>
-<button (click)="showHideSpecifications(false)" [class.showingData]="showSpecs === false">Ocultar especificaciones</button>
-<ul *ngIf="showSpecs === true">
-  <li>Fabricante: <strong>{{terminator.manufacturer}}</strong></li>
-  <li>Modelo: <strong>{{terminator.model}}</strong></li>
-  <li>Clase: <strong>{{terminator.robotClass}}</strong></li>
-  <li>Año de creación: <strong>{{terminator.manufacturingYear}}</strong></li>
-</ul>
-
-<p>
-  Cambiar fabricante:
-  <input type="text" (keypress)="onKeyPress(true)" [(ngModel)]="terminator.manufacturer"/>
-</p>
-
-<hr/>
-<p>Modelos de exterminadores:</p>
-<ul>
-  <ul *ngFor="#terminator of models" style="margin-bottom: 20px">
-    <li *ngIf="terminator.manufacturer">Fabricante: <strong>{{terminator.manufacturer}}</strong></li>
-    <li *ngIf="terminator.model">Modelo: <strong>{{terminator.model}}</strong></li>
-    <li *ngIf="terminator.robotClass">Clase: <strong>{{terminator.robotClass}}</strong></li>
-    <li>Año de creación: <strong>{{terminator.manufacturingYear}}</strong></li>
-  </ul>
-</ul>
+<robots-list></robots-list>
+<footer></footer>
