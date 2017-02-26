@@ -12,11 +12,17 @@ export class AppComponent {
   public title : string;
   public terminator : Terminator;
   private showSpecs : boolean;
+  private models : Array<Terminator>;
 
   constructor() {
     this.terminator = new Terminator(123456789, "Skynet", "T-800", "Cybernetic organism", 2017);
     this.title = "Terminator";
-    this.showSpecs = false;
+
+    this.models = [
+      new Terminator(123456789, "Skynet", null, "Cybernetic organism", 2017),
+      new Terminator(12345678, "Skynet", "T-1000", "Liquid metal", 2017),
+      new Terminator(1234567, "Skynet", "T-4000", null, 2025)
+    ];
   }
 
   showHideSpecifications(value) {
