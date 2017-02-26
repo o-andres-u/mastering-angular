@@ -8,5 +8,9 @@
   <li>Modelo: <strong>{{terminator.model}}</strong></li>
   <li>Clase: <strong>{{terminator.robotClass}}</strong></li>
   <li>Año de creación: <strong>{{terminator.manufacturingYear}}</strong></li>
-
 </ul>
+
+<p>
+  Cambiar título:
+  <input type="text" (keypress)="onKeyPress('a')" [(ngModel)]="terminator.manufacturer"/>
+</p>
