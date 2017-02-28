@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, OnChanges, OnDestroy } from "@angular/core";
 import { IProduct } from "./product";
 
 @Component({
@@ -6,7 +6,7 @@ import { IProduct } from "./product";
     templateUrl: "app/products/product-list.component.html",
     styleUrls: ["app/products/product-list.component.css"]
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit, OnChanges, OnDestroy {
     pageTitle: string = "Product List";
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -64,6 +64,18 @@ export class ProductListComponent {
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
         }
     ];
+
+    ngOnInit(): void {
+        console.log("In OnInit");
+    }
+
+    ngOnChanges(): void {
+        console.log("In OnChanges");
+    }
+
+    ngOnDestroy(): void {
+        console.log("In OnDestroy");
+    }
 
     toggleImage(): void {
         this.showImage = !this.showImage;

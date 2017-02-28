@@ -66,6 +66,15 @@ var ProductListComponent = (function () {
             }
         ];
     }
+    ProductListComponent.prototype.ngOnInit = function () {
+        console.log("In OnInit");
+    };
+    ProductListComponent.prototype.ngOnChanges = function () {
+        console.log("In OnChanges");
+    };
+    ProductListComponent.prototype.ngOnDestroy = function () {
+        console.log("In OnDestroy");
+    };
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };
