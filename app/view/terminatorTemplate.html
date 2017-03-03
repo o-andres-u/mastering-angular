@@ -1,4 +1,10 @@
 <h1>{{title}}</h1>
-
-<robots-list></robots-list>
+<nav>
+  <ul>
+    <li><a [routerLink]="['Robots']">Inicio</a></li>
+    <li>Añadir robot</li>
+    <li><a [routerLink]="['Contact']">Contacto</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
 <footer></footer>

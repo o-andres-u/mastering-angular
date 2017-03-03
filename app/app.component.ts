@@ -1,12 +1,23 @@
 import {Component} from "angular2/core";
 import {RobotsListComponent} from "./components/robots-list.component";
 import {FooterComponent} from "./components/footer.component";
+import {ContactComponent} from "./components/contact.component";
+
+import {ROUTER_DIRECTIVES, RouteConfig, Router} from "angular2/router";
 
 @Component({
   selector: "terminator-app",
   templateUrl: "app/view/terminatorTemplate.html",
-  directives: [RobotsListComponent, FooterComponent]
+  directives: [RobotsListComponent,
+               FooterComponent,
+               ContactComponent,
+               ROUTER_DIRECTIVES]
 })
+
+@RouteConfig([
+  {path: "/robots", name: "Robots", component: RobotsListComponent, useAsDefault: true},
+  {path: "/contact", name: "Contact", component: ContactComponent, useAsDefault: false}
+])
 
 export class AppComponent {
 
