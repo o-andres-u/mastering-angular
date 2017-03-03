@@ -1,3 +1,5 @@
+<p>{{serviceData}}</p>
+
 <button (click)="showHideSpecifications(true)" [class.showingData]="showSpecs === true">Mostrar especificaciones</button>
 <button (click)="showHideSpecifications(false)" [class.showingData]="showSpecs === false">Ocultar especificaciones</button>
 <ul *ngIf="showSpecs === true">

@@ -1,9 +1,11 @@
 import {Component} from "angular2/core";
 import {Terminator} from "../model/Terminator";
+import {TerminatorService} from "../services/terminator.service";
 
 @Component({
   selector: "robots-list",
-  templateUrl: "app/view/robots-list.html"
+  templateUrl: "app/view/robots-list.html",
+  providers: [TerminatorService]
 })
 
 export class RobotsListComponent {
@@ -13,14 +15,12 @@ export class RobotsListComponent {
   private models : Array<Terminator>;
   private robotSelected: Terminator;
 
-  constructor() {
+  private serviceData;
+
+  constructor(private _robots: TerminatorService) {
     this.showSpecs = false;
-    
-    this.models = [
-      new Terminator(123456789, "Skynet", "T-800", "Cybernetic organism", 2017),
-      new Terminator(12345678, "Skynet", "T-1000", "Liquid metal", 2017),
-      new Terminator(1234567, "Skynet", "T-4000", null, 2025)
-    ];
+    this.models = this._robots.getRobots();
+    console.log(this.models);
 
     this.terminator = this.models[0];
     this.robotSelected = this.models[0];
