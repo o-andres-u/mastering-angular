@@ -1,6 +1,8 @@
 var express  = require('express'),
     path     = require('path'),
     bodyParser = require('body-parser'),
+    fs = require('fs'),
+    cors = require('cors'),
     app = express(),
     expressValidator = require('express-validator');
 
@@ -13,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true })); //support x-www-form-urlencoded
 app.use(bodyParser.json());
 app.use(expressValidator());
+app.use(cors()); 
 
 /*MySql connection*/
 var connection  = require('express-myconnection'),
@@ -51,33 +54,24 @@ router.use(function(req, res, next) {
     next();
 });
 
-var curut = router.route('/user');
-
+var restauranteRoute = router.route('/restaurantes');
 
 //show the CRUD interface | GET
-curut.get(function(req,res,next){
-
-
+restauranteRoute.get(function(req,res,next){
     req.getConnection(function(err,conn){
-
         if (err) return next("Cannot Connect");
-
-        var query = conn.query('SELECT * FROM t_user',function(err,rows){
-
+        var query = conn.query('SELECT * FROM restaurantes',function(err,rows){
             if(err){
                 console.log(err);
                 return next("Mysql error, check your query");
             }
-
-            res.render('user',{title:"RESTful Crud Example",data:rows});
-
-         });
-
+            res.status(200).json({status:"success",data:rows});
+        });
     });
-
 });
+
 //post data to DB | POST
-curut.post(function(req,res,next){
+restauranteRoute.post(function(req,res,next){
 
     //validation
     req.assert('name','Name is required').notEmpty();
@@ -102,7 +96,7 @@ curut.post(function(req,res,next){
 
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("INSERT INTO t_user set ? ",data, function(err, rows){
+        var query = conn.query("INSERT INTO restaurantes set ? ",data, function(err, rows){
 
            if(err){
                 console.log(err);
@@ -119,23 +113,23 @@ curut.post(function(req,res,next){
 
 
 //now for Single route (GET,DELETE,PUT)
-var curut2 = router.route('/user/:user_id');
+var restauranteRoute2 = router.route('/user/:user_id');
 
 /*------------------------------------------------------
 route.all is extremely useful. you can use it to do
 stuffs for specific routes. for example you need to do
 a validation everytime route /api/user/:user_id it hit.
 
-remove curut2.all() if you dont want it
+remove restauranteRoute2.all() if you dont want it
 ------------------------------------------------------*/
-curut2.all(function(req,res,next){
-    console.log("You need to smth about curut2 Route ? Do it here");
+restauranteRoute2.all(function(req,res,next){
+    console.log("You need to smth about restauranteRoute2 Route ? Do it here");
     console.log(req.params);
     next();
 });
 
 //get data to update
-curut2.get(function(req,res,next){
+restauranteRoute2.get(function(req,res,next){
 
     var user_id = req.params.user_id;
 
@@ -143,7 +137,7 @@ curut2.get(function(req,res,next){
 
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("SELECT * FROM t_user WHERE user_id = ? ",[user_id],function(err,rows){
+        var query = conn.query("SELECT * FROM restaurantes WHERE user_id = ? ",[user_id],function(err,rows){
 
             if(err){
                 console.log(err);
@@ -162,7 +156,7 @@ curut2.get(function(req,res,next){
 });
 
 //update data
-curut2.put(function(req,res,next){
+restauranteRoute2.put(function(req,res,next){
     var user_id = req.params.user_id;
 
     //validation
@@ -188,7 +182,7 @@ curut2.put(function(req,res,next){
 
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("UPDATE t_user set ? WHERE user_id = ? ",[data,user_id], function(err, rows){
+        var query = conn.query("UPDATE restaurantes set ? WHERE user_id = ? ",[data,user_id], function(err, rows){
 
            if(err){
                 console.log(err);
@@ -204,7 +198,7 @@ curut2.put(function(req,res,next){
 });
 
 //delete data
-curut2.delete(function(req,res,next){
+restauranteRoute2.delete(function(req,res,next){
 
     var user_id = req.params.user_id;
 
@@ -212,7 +206,7 @@ curut2.delete(function(req,res,next){
 
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("DELETE FROM t_user  WHERE user_id = ? ",[user_id], function(err, rows){
+        var query = conn.query("DELETE FROM restaurantes  WHERE user_id = ? ",[user_id], function(err, rows){
 
              if(err){
                 console.log(err);
@@ -226,6 +220,7 @@ curut2.delete(function(req,res,next){
 
      });
 });
+
 
 //now we need to apply our router here
 app.use('/api', router);
