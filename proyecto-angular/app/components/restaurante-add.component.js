@@ -63,8 +63,8 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
                     this.filesToUpload = fileInput.target.files;
                     this._restauranteService.uploadImageRestaurante([], this.filesToUpload)
                         .then(function (result) {
-                        _this.restaurante.imagen = result.filename;
-                        console.log(result.filename);
+                        _this.resultUpload = result;
+                        _this.restaurante.imagen = _this.resultUpload.filename;
                     }, function (error) {
                         console.log(error);
                     });

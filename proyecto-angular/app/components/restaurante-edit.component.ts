@@ -75,12 +75,14 @@ export class RestauranteEditComponent implements OnInit {
         return this.restaurante;
     }
 
+    public resultUpload; //Machete
+
     fileChangeEvent(fileInput: any) {
         this.filesToUpload = <Array<File>>fileInput.target.files;
         this._restauranteService.uploadImageRestaurante([], this.filesToUpload)
             .then((result) => {
-                this.restaurante.imagen = result.filename;
-                console.log(result.filename);
+                this.resultUpload = result;
+                this.restaurante.imagen = this.resultUpload.filename;
             }, (error) => {
                 console.log(error);
             });
