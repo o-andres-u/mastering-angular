@@ -140,7 +140,7 @@ restauranteRoute2.get(function(req,res,next){
             }
             //if user not found
             if(rows.length < 1)
-                return res.send("User Not found");
+                return res.status(200).json({status:"not-found"});
 
             res.status(200).json({status:"success",data:rows[0]});
         });
