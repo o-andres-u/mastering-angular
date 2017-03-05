@@ -78,6 +78,17 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
                     });
                     return this.restaurante;
                 };
+                RestauranteEditComponent.prototype.fileChangeEvent = function (fileInput) {
+                    var _this = this;
+                    this.filesToUpload = fileInput.target.files;
+                    this._restauranteService.uploadImageRestaurante([], this.filesToUpload)
+                        .then(function (result) {
+                        _this.restaurante.imagen = result.filename;
+                        console.log(result.filename);
+                    }, function (error) {
+                        console.log(error);
+                    });
+                };
                 RestauranteEditComponent = __decorate([
                     core_1.Component({
                         selector: "restaurante-edit",
