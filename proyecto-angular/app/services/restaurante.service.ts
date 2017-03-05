@@ -31,4 +31,10 @@ export class RestauranteService {
 
         return this._http.put("http://localhost:3000/api/restaurante/"+restaurante.id, json, {headers: headers}).map(res => res.json());
     }
+
+    deleteRestaurante(id: number) {
+        let headers = new Headers({"Content-Type":"application/json"});
+
+        return this._http.delete("http://localhost:3000/api/restaurante/"+id, {headers: headers}).map(res => res.json());
+    }
 }

@@ -42,6 +42,10 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map"], fun
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     return this._http.put("http://localhost:3000/api/restaurante/" + restaurante.id, json, { headers: headers }).map(function (res) { return res.json(); });
                 };
+                RestauranteService.prototype.deleteRestaurante = function (id) {
+                    var headers = new http_1.Headers({ "Content-Type": "application/json" });
+                    return this._http.delete("http://localhost:3000/api/restaurante/" + id, { headers: headers }).map(function (res) { return res.json(); });
+                };
                 RestauranteService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
