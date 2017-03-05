@@ -27,4 +27,25 @@ export class RestauranteAddComponent implements OnInit {
         this.restaurante = new Restaurante();
         console.log("restaurante-add component cargando");
     }
+
+    onSubmit(): void {
+        this._restauranteService.addRestaurante(this.restaurante)
+            .subscribe(
+                result => {
+                    this.status = result.status;
+
+                    if (this.status !== "success") {
+                        alert("Error en el servidor");
+                    } else {
+                        this._router.navigate(["Home"]);
+                    }
+                },
+                error => {
+                    this.errorMessage = <any>error;
+                    if (this.errorMessage !== null) {
+                        console.log(this.errorMessage);
+                        alert("Error en la petición");
+                    }
+                } );
+    }
 }

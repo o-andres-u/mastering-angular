@@ -38,6 +38,25 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
                     this.restaurante = new restaurante_1.Restaurante();
                     console.log("restaurante-add component cargando");
                 };
+                RestauranteAddComponent.prototype.onSubmit = function () {
+                    var _this = this;
+                    this._restauranteService.addRestaurante(this.restaurante)
+                        .subscribe(function (result) {
+                        _this.status = result.status;
+                        if (_this.status !== "success") {
+                            alert("Error en el servidor");
+                        }
+                        else {
+                            _this._router.navigate(["Home"]);
+                        }
+                    }, function (error) {
+                        _this.errorMessage = error;
+                        if (_this.errorMessage !== null) {
+                            console.log(_this.errorMessage);
+                            alert("Error en la petición");
+                        }
+                    });
+                };
                 RestauranteAddComponent = __decorate([
                     core_1.Component({
                         selector: "restaurante-add",

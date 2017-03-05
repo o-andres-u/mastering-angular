@@ -69,12 +69,12 @@ restauranteRoute.get(function(req,res,next){
 });
 
 //post data to DB | POST
-restauranteRoute.post(function(req,res,next){
-
+restauranteRoute.post(function(req,res,next) {
     //validation
-    req.assert('name','Name is required').notEmpty();
-    req.assert('email','A valid email is required').isEmail();
-    req.assert('password','Enter a password 6 - 20').len(6,20);
+    req.assert('nombre','El nombre es requerido').notEmpty();
+    req.assert('direccion','La dirección es requerida').notEmpty();
+    req.assert('descripcion','La descripción es requerida').notEmpty();
+    req.assert('precio','El precio es requerido').notEmpty();
 
     var errors = req.validationErrors();
     if(errors){
@@ -84,29 +84,26 @@ restauranteRoute.post(function(req,res,next){
 
     //get data
     var data = {
-        name:req.body.name,
-        email:req.body.email,
-        password:req.body.password
+        nombre: req.body.nombre,
+        direccion: req.body.direccion,
+        descripcion: req.body.descripcion,
+        precio: req.body.precio
      };
 
     //inserting into mysql
-    req.getConnection(function (err, conn){
-
+    req.getConnection(function (err, conn) {
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("INSERT INTO restaurantes set ? ",data, function(err, rows){
+        var query = conn.query("INSERT INTO restaurantes set ? ", data, function(err, rows) {
 
            if(err){
                 console.log(err);
                 return next("Mysql error, check your query");
            }
 
-          res.sendStatus(200);
-
+            res.status(200).json({status:"success"});
         });
-
      });
-
 });
 
 
