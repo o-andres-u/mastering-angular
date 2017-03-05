@@ -183,26 +183,20 @@ restauranteRoute2.put(function(req,res,next){
 });
 
 //delete data
-restauranteRoute2.delete(function(req,res,next){
-
+restauranteRoute2.delete(function(req,res,next) {
     var id = req.params.id;
 
      req.getConnection(function (err, conn) {
-
         if (err) return next("Cannot Connect");
 
         var query = conn.query("DELETE FROM restaurantes  WHERE id = ? ",[id], function(err, rows){
-
              if(err){
                 console.log(err);
                 return next("Mysql error, check your query");
              }
 
-             res.sendStatus(200);
-
+            res.status(200).json({status:"success"});
         });
-        //console.log(query.sql);
-
      });
 });
 
