@@ -114,3 +114,7 @@ header h1 {
     list-style: none;
     text-decoration: none;
 }
+
+.show {
+    display: none;
+}

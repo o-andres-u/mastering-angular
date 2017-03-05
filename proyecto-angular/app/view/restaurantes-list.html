@@ -2,7 +2,7 @@
 
 <ul id="restaurantes-list">
     <li class="loading">
-        <img src="../../assets/images/loader.gif"/>
+        <img src="../../assets/images/loader.gif" [class.show]="status"/>
     </li>
     <li *ngFor="#restaurante of restaurantes" class="restaurante-item">
         <div class="image"></div>
