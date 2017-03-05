@@ -6,14 +6,14 @@ import {Restaurante} from "../model/restaurante";
 
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component({
-    selector: "restaurante-add",
+    selector: "restaurante-edit",
     templateUrl: "app/view/restaurante-add.html",
     providers: [RestauranteService]
     //, styleUrls: ["../assets/css/styles.css"] //Se coloca en el html para que sea global.
 })
 // Clase del componente donde iran los datos y funcionalidades
-export class RestauranteAddComponent implements OnInit {
-    public titulo: string = "Crear nuevo Restaurante";
+export class RestauranteEditComponent implements OnInit {
+    public titulo: string = "Editar Restaurante";
     public restaurante: Restaurante;
     public status: string;
     public errorMessage: string;
@@ -26,7 +26,8 @@ export class RestauranteAddComponent implements OnInit {
 
     ngOnInit(): void {
         this.restaurante = new Restaurante();
-        console.log("restaurante-add component cargando");
+        this.getRestaurante();
+        console.log("restaurante-edit component cargando");
     }
 
     onSubmit(): void {
@@ -48,5 +49,27 @@ export class RestauranteAddComponent implements OnInit {
                         alert("Error en la petición");
                     }
                 } );
+    }
+
+    getRestaurante(): Restaurante {
+        let id = this._routeParams.get("id");
+        this._restauranteService.getRestaurante(id)
+            .subscribe(
+                result => {
+                    this.restaurante = result.data;
+                    this.status = result.status;
+
+                    if (this.status != "success") {
+                        this._router.navigate(["Home"]);
+                    }
+                },
+                error => {
+                    this.errorMessage = <any>error;
+                    if (this.errorMessage !== null) {
+                        console.log(this.errorMessage);
+                        alert("Error en la petición");
+                    }
+                } );
+        return this.restaurante;
     }
 }

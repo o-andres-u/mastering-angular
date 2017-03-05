@@ -1,4 +1,4 @@
-<h1>Añadir nuevo restaurante</h1>
+<h1>{{titulo}}</h1>
 <form #formRestaurante="ngForm" (ngSubmit)="onSubmit()">
     <label for="nombre">Nombre:</label>
     <p>
@@ -25,5 +25,5 @@
         </select>
         <span *ngIf="!precio.valid">El precio es obligatorio</span>
     </p>
-    <input type="submit" value="Crear restaurante" [disabled]="!formRestaurante.form.valid" />
+    <input type="submit" value="{{titulo}}" [disabled]="!formRestaurante.form.valid" />
 </form>
