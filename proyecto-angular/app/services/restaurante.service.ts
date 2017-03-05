@@ -14,7 +14,10 @@ export class RestauranteService {
         return this._http.get("http://localhost:3000/api/restaurantes").map(res => res.json());
     }
 
-    getRestaurante(id: string) {
+    getRestaurante(id: string, random: any = null) {
+        if (random) {
+            return this._http.get("http://localhost:3000/api/random-restaurante/").map(res => res.json());
+        }
         return this._http.get("http://localhost:3000/api/restaurante/"+id).map(res => res.json());
     }
 

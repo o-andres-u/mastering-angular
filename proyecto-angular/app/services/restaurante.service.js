@@ -29,7 +29,11 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map"], fun
                 RestauranteService.prototype.getRestaurantes = function () {
                     return this._http.get("http://localhost:3000/api/restaurantes").map(function (res) { return res.json(); });
                 };
-                RestauranteService.prototype.getRestaurante = function (id) {
+                RestauranteService.prototype.getRestaurante = function (id, random) {
+                    if (random === void 0) { random = null; }
+                    if (random) {
+                        return this._http.get("http://localhost:3000/api/random-restaurante/").map(function (res) { return res.json(); });
+                    }
                     return this._http.get("http://localhost:3000/api/restaurante/" + id).map(function (res) { return res.json(); });
                 };
                 RestauranteService.prototype.addRestaurante = function (restaurante) {

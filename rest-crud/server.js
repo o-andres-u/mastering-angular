@@ -50,6 +50,25 @@ router.use(function(req, res, next) {
     next();
 });
 
+var restauranteRandomRoute = router.route('/random-restaurante');
+
+//show the CRUD interface | GET
+restauranteRandomRoute.get(function(req,res,next){
+    req.getConnection(function(err,conn){
+        if (err) return next("Cannot Connect");
+        var query = conn.query('SELECT * FROM restaurantes',function(err,rows){
+            if(err){
+                console.log(err);
+                return next("Mysql error, check your query");
+            }
+            
+            let random = Math.floor(Math.random() * (rows.length - 0 + 1) + 0);
+            res.status(200).json({status:"success",data:rows[random]});
+        });
+    });
+});
+
+
 var restauranteRoute = router.route('/restaurantes');
 
 //show the CRUD interface | GET

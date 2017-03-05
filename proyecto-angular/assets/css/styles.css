@@ -135,6 +135,16 @@ header h1 {
     width: 200px;
 }
 
+.restaurante-box img {
+    width: 200px;
+    float: left;
+    margin-right: 30px;
+}
+
+.data-rest {
+    float: left;
+}
+
 .restaurante-box .direccion {
     color: gray;
 

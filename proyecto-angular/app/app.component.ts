@@ -18,7 +18,8 @@ import {RestauranteEditComponent} from "./components/restaurante-edit.component"
     {path: "/", name: "Home", component: RestaurantesListComponent, useAsDefault: true},
     {path: "/restaurante/:id", name: "Restaurante", component: RestauranteDetailComponent},
     {path: "/crear-restaurante/", name: "CrearRestaurante", component: RestauranteAddComponent},
-    {path: "/editar-restaurante/:id", name: "EditarRestaurante", component: RestauranteEditComponent}
+    {path: "/editar-restaurante/:id", name: "EditarRestaurante", component: RestauranteEditComponent},
+    {path: "/donde-como-hoy/:random", name: "DondeComoHoy", component: RestauranteDetailComponent}
 ])
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent {
