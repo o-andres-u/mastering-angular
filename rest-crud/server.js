@@ -146,12 +146,12 @@ restauranteRoute2.get(function(req,res,next){
 
 //update data
 restauranteRoute2.put(function(req,res,next){
-    var user_id = req.params.user_id;
-
     //validation
-    req.assert('name','Name is required').notEmpty();
-    req.assert('email','A valid email is required').isEmail();
-    req.assert('password','Enter a password 6 - 20').len(6,20);
+    req.assert('id','No hay identificador para actualizar').notEmpty();
+    req.assert('nombre','El nombre es requerido').notEmpty();
+    req.assert('direccion','La dirección es requerida').notEmpty();
+    req.assert('descripcion','La descripción es requerida').notEmpty();
+    req.assert('precio','El precio es requerido').notEmpty();
 
     var errors = req.validationErrors();
     if(errors){
@@ -160,42 +160,38 @@ restauranteRoute2.put(function(req,res,next){
     }
 
     //get data
+    var id = req.params.id;
     var data = {
-        name:req.body.name,
-        email:req.body.email,
-        password:req.body.password
+        nombre: req.body.nombre,
+        direccion: req.body.direccion,
+        descripcion: req.body.descripcion,
+        precio: req.body.precio
      };
-
     //inserting into mysql
     req.getConnection(function (err, conn){
-
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("UPDATE restaurantes set ? WHERE user_id = ? ",[data,user_id], function(err, rows){
-
+        var query = conn.query("UPDATE restaurantes set ? WHERE id = ? ",[data,id], function(err, rows){
            if(err){
                 console.log(err);
                 return next("Mysql error, check your query");
            }
 
-          res.sendStatus(200);
-
+            res.status(200).json({status:"success"});
         });
-
      });
-
 });
 
 //delete data
 restauranteRoute2.delete(function(req,res,next){
 
-    var user_id = req.params.user_id;
+    var id = req.params.id;
 
      req.getConnection(function (err, conn) {
 
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("DELETE FROM restaurantes  WHERE user_id = ? ",[user_id], function(err, rows){
+        var query = conn.query("DELETE FROM restaurantes  WHERE id = ? ",[id], function(err, rows){
 
              if(err){
                 console.log(err);

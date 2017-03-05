@@ -20,9 +20,15 @@ export class RestauranteService {
 
     addRestaurante(restaurante: Restaurante) {
         let json = JSON.stringify(restaurante);
-        let params = "json="+json;
         let headers = new Headers({"Content-Type":"application/json"});
 
         return this._http.post("http://localhost:3000/api/restaurantes/", json, {headers: headers}).map(res => res.json());
+    }
+
+    editRestaurante(restaurante: Restaurante) {
+        let json = JSON.stringify(restaurante);
+        let headers = new Headers({"Content-Type":"application/json"});
+
+        return this._http.put("http://localhost:3000/api/restaurante/"+restaurante.id, json, {headers: headers}).map(res => res.json());
     }
 }

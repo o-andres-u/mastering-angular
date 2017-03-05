@@ -31,7 +31,7 @@ export class RestauranteEditComponent implements OnInit {
     }
 
     onSubmit(): void {
-        this._restauranteService.addRestaurante(this.restaurante)
+        this._restauranteService.editRestaurante(this.restaurante)
             .subscribe(
                 result => {
                     this.status = result.status;

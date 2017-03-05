@@ -42,7 +42,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
                 };
                 RestauranteEditComponent.prototype.onSubmit = function () {
                     var _this = this;
-                    this._restauranteService.addRestaurante(this.restaurante)
+                    this._restauranteService.editRestaurante(this.restaurante)
                         .subscribe(function (result) {
                         _this.status = result.status;
                         if (_this.status !== "success") {
