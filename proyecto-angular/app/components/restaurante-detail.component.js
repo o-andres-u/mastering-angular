@@ -11,7 +11,7 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1, restaurante_service_1;
-    var RestaurantesListComponent;
+    var RestauranteDetailComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -25,20 +25,21 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
             }],
         execute: function() {
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
-            RestaurantesListComponent = (function () {
-                function RestaurantesListComponent(_restauranteService) {
+            RestauranteDetailComponent = (function () {
+                function RestauranteDetailComponent(_restauranteService, _routeParams) {
                     this._restauranteService = _restauranteService;
-                    this.titulo = "Listado de Restaurantes";
+                    this._routeParams = _routeParams;
                 }
-                RestaurantesListComponent.prototype.ngOnInit = function () {
-                    this.getRestaurantes();
-                    console.log("restaurantes-list component cargando");
+                RestauranteDetailComponent.prototype.ngOnInit = function () {
+                    this.getRestaurante();
+                    console.log("restaurante-detail component cargando");
                 };
-                RestaurantesListComponent.prototype.getRestaurantes = function () {
+                RestauranteDetailComponent.prototype.getRestaurante = function () {
                     var _this = this;
-                    this._restauranteService.getRestaurantes()
+                    var id = this._routeParams.get("id");
+                    this._restauranteService.getRestaurante(id)
                         .subscribe(function (result) {
-                        _this.restaurantes = result.data;
+                        _this.restaurante = result.data;
                         _this.status = result.status;
                         if (_this.status != "success") {
                             alert("Error en el servidor");
@@ -50,21 +51,20 @@ System.register(["angular2/core", "angular2/router", "../services/restaurante.se
                             alert("Error en la petición");
                         }
                     });
-                    return this.restaurantes;
+                    return this.restaurante;
                 };
-                RestaurantesListComponent = __decorate([
+                RestauranteDetailComponent = __decorate([
                     core_1.Component({
-                        selector: "restaurantes-list",
-                        templateUrl: "app/view/restaurantes-list.html",
-                        directives: [router_1.ROUTER_DIRECTIVES],
+                        selector: "restaurante-detail",
+                        templateUrl: "app/view/restaurante-detail.html",
                         providers: [restaurante_service_1.RestauranteService]
                     }), 
-                    __metadata('design:paramtypes', [restaurante_service_1.RestauranteService])
-                ], RestaurantesListComponent);
-                return RestaurantesListComponent;
+                    __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_1.RouteParams])
+                ], RestauranteDetailComponent);
+                return RestauranteDetailComponent;
             }());
-            exports_1("RestaurantesListComponent", RestaurantesListComponent);
+            exports_1("RestauranteDetailComponent", RestauranteDetailComponent);
         }
     }
 });
-//# sourceMappingURL=restaurantes-list.component.js.map
+//# sourceMappingURL=restaurante-detail.component.js.map
