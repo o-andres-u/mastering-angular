@@ -46,6 +46,27 @@ System.register(["angular2/core", "angular2/http", "rxjs/add/operator/map"], fun
                     var headers = new http_1.Headers({ "Content-Type": "application/json" });
                     return this._http.delete("http://localhost:3000/api/restaurante/" + id, { headers: headers }).map(function (res) { return res.json(); });
                 };
+                RestauranteService.prototype.uploadImageRestaurante = function (params, files) {
+                    return new Promise(function (resolve, reject) {
+                        var formData = new FormData();
+                        var xhr = new XMLHttpRequest();
+                        for (var i = 0; i < files.length; i++) {
+                            formData.append("uploads[]", files[i], files[i].name);
+                        }
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4) {
+                                if (xhr.status == 200) {
+                                    resolve(JSON.parse(xhr.response));
+                                }
+                                else {
+                                    reject(xhr.response);
+                                }
+                            }
+                        };
+                        xhr.open("POST", "http://localhost:3000/api/restaurante-image/", true);
+                        xhr.send(formData);
+                    });
+                };
                 RestauranteService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])

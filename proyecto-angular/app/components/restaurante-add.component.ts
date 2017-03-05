@@ -17,7 +17,9 @@ export class RestauranteAddComponent implements OnInit {
     public restaurante: Restaurante;
     public status: string;
     public errorMessage: string;
-
+    
+    public filesToUpload: Array<File>;
+    
     constructor(
         private _restauranteService:RestauranteService,
         private _routeParams: RouteParams,
@@ -48,5 +50,16 @@ export class RestauranteAddComponent implements OnInit {
                         alert("Error en la petición");
                     }
                 } );
+    }
+
+    fileChangeEvent(fileInput: any) {
+        this.filesToUpload = <Array<File>>fileInput.target.files;
+        this._restauranteService.uploadImageRestaurante([], this.filesToUpload)
+            .then((result) => {
+                this.restaurante.imagen = result.filename;
+                console.log(result.filename);
+            }, (error) => {
+                console.log(error);
+            });
     }
 }

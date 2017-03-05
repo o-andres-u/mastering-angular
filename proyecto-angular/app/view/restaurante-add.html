@@ -25,5 +25,9 @@
         </select>
         <span *ngIf="!precio.valid">El precio es obligatorio</span>
     </p>
+    <label for="imagen">Imagen:</label>
+    <p>
+        <input id="imagen" type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)"/>
+    </p>
     <input type="submit" value="{{titulo}}" [disabled]="!formRestaurante.form.valid" />
 </form>

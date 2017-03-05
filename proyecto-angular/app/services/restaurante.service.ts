@@ -37,4 +37,27 @@ export class RestauranteService {
 
         return this._http.delete("http://localhost:3000/api/restaurante/"+id, {headers: headers}).map(res => res.json());
     }
+
+    uploadImageRestaurante(params: Array<string>, files: Array<File>) {
+        return new Promise((resolve, reject) => {
+            var formData: any = new FormData();
+            var xhr = new XMLHttpRequest();
+
+            for(var i=0;i<files.length;i++) {
+                formData.append("uploads[]", files[i], files[i].name);
+            }
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject(xhr.response);
+                    }
+                }
+            };
+            xhr.open("POST", "http://localhost:3000/api/restaurante-image/", true);
+            xhr.send(formData);
+        });
+    }
 }

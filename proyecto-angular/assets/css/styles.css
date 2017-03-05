@@ -76,6 +76,11 @@ header h1 {
     float: left;
 }
 
+.restaurante-item .image img {
+    height: 105px;
+    width: 105px;
+}
+
 .restaurante-item .data {
     float: left;
     padding-left: 20px;

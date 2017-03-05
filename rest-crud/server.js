@@ -4,13 +4,11 @@ var express  = require('express'),
     fs = require('fs'),
     cors = require('cors'),
     app = express(),
-    expressValidator = require('express-validator');
+    expressValidator = require('express-validator'),
+    multer = require('multer');
 
 
 /*Set EJS template Engine*/
-app.set('views','./views');
-app.set('view engine','ejs');
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true })); //support x-www-form-urlencoded
 app.use(bodyParser.json());
@@ -87,7 +85,8 @@ restauranteRoute.post(function(req,res,next) {
         nombre: req.body.nombre,
         direccion: req.body.direccion,
         descripcion: req.body.descripcion,
-        precio: req.body.precio
+        precio: req.body.precio,
+        imagen: req.body.imagen
      };
 
     //inserting into mysql
@@ -165,7 +164,8 @@ restauranteRoute2.put(function(req,res,next){
         nombre: req.body.nombre,
         direccion: req.body.direccion,
         descripcion: req.body.descripcion,
-        precio: req.body.precio
+        precio: req.body.precio,
+        imagen: req.body.imagen
      };
     //inserting into mysql
     req.getConnection(function (err, conn){
@@ -200,13 +200,65 @@ restauranteRoute2.delete(function(req,res,next) {
      });
 });
 
+var upload = multer({ dest: '/tmp/'});
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads/')
+    },
+    filename: function (req, file, cb) {
+        var ext = require('path').extname(file.originalname);
+        ext = ext.length>1 ? ext : "." + require('mime').extension(file.mimetype);
+        require('crypto').pseudoRandomBytes(16, function (err, raw) {
+            cb(null, (err ? undefined : raw.toString('hex') ) + ext);
+        });
+    }
+});
+
+var upload = multer({ storage: storage });
+
+app.post('/api/restaurante-image', upload.any(), function (req, res, next) {
+      res.status(200).json({
+        message: 'File uploaded successfully',
+        filename: req.files[0].filename
+      });/*
+      console.log(req);
+    res.send(req.files);*/
+});
 
 //now we need to apply our router here
 app.use('/api', router);
 
+var router2 = express.Router('/uploads/');
+
+var url = require('url');
+router2.get(function(req,res,next){
+    var request = url.parse(req.url, true);
+    var action = request.pathname;
+    console.log(action);
+     var img = fs.readFileSync(action);
+     res.writeHead(200, {'Content-Type': 'image/gif' });
+     res.end(img, 'binary');
+});
+app.use('/', router2);
+
+
+
+app.get('/uploads/*',function(req,res,next){
+    var request = url.parse(req.url, true);
+    var action = request.pathname;
+    console.log(action);
+    try {
+     var img = fs.readFileSync("./"+action);
+     res.writeHead(200, {'Content-Type': 'image/gif' });
+     res.end(img, 'binary');
+    } catch(e) {
+        res.status(404);
+        res.end();
+    }
+});
+
 //start Server
 var server = app.listen(3000,function(){
-
    console.log("Listening to port %s",server.address().port);
-
 });
