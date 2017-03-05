@@ -22,7 +22,6 @@ var connection  = require('express-myconnection'),
     mysql = require('mysql');
 
 app.use(
-
     connection(mysql,{
         host     : 'localhost',
         user     : 'root',
@@ -30,7 +29,6 @@ app.use(
         database : 'test',
         debug    : false //set true if you wanna see debug logger
     },'request')
-
 );
 
 app.get('/',function(req,res){
@@ -113,12 +111,12 @@ restauranteRoute.post(function(req,res,next){
 
 
 //now for Single route (GET,DELETE,PUT)
-var restauranteRoute2 = router.route('/user/:user_id');
+var restauranteRoute2 = router.route('/restaurante/:id');
 
 /*------------------------------------------------------
 route.all is extremely useful. you can use it to do
 stuffs for specific routes. for example you need to do
-a validation everytime route /api/user/:user_id it hit.
+a validation everytime route /api/restaurante/:id it hit.
 
 remove restauranteRoute2.all() if you dont want it
 ------------------------------------------------------*/
@@ -130,29 +128,23 @@ restauranteRoute2.all(function(req,res,next){
 
 //get data to update
 restauranteRoute2.get(function(req,res,next){
-
-    var user_id = req.params.user_id;
+    var id = req.params.id;
 
     req.getConnection(function(err,conn){
-
         if (err) return next("Cannot Connect");
 
-        var query = conn.query("SELECT * FROM restaurantes WHERE user_id = ? ",[user_id],function(err,rows){
-
+        var query = conn.query("SELECT * FROM restaurantes WHERE id = ? ",[id],function(err,rows){
             if(err){
                 console.log(err);
                 return next("Mysql error, check your query");
             }
-
             //if user not found
             if(rows.length < 1)
                 return res.send("User Not found");
 
-            res.render('edit',{title:"Edit user",data:rows});
+            res.status(200).json({status:"success",data:rows[0]});
         });
-
     });
-
 });
 
 //update data
