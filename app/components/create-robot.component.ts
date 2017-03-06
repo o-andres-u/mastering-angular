@@ -12,20 +12,26 @@ import {TerminatorService} from "../services/terminator.service";
 export class CreateRobotComponent implements OnInit {
 
   public manufacturerParameter: string = "";
+  public newRobot: Terminator;
 
   constructor(private _robotService: TerminatorService,
               private _router: Router,
               private _routeParams: RouteParams) {
   }
 
-  createRobot(serial, manufacturer, model, robotClass, manufacturingYear) {
-    let robot: Terminator = new Terminator(serial, manufacturer, model, robotClass, manufacturingYear);
-    this._robotService.insertRobot(robot);
+  submit() {
+    this._robotService.insertRobot(this.newRobot);
     this._router.navigate(["Robots"]);
   }
 
   ngOnInit(): any {
-    this.manufacturerParameter = this._routeParams.get("manufacturerParameter");
+    this.newRobot = new Terminator(
+      parseInt(this._routeParams.get("serial")),
+      this._routeParams.get("manufacturerParameter"),
+      this._routeParams.get("modelParameter"),
+      this._routeParams.get("robotClassParameter"),
+      parseInt(this._routeParams.get("manufacturingYear"))
+    );
   }
 
 }

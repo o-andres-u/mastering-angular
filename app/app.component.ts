@@ -19,7 +19,7 @@ import {ROUTER_DIRECTIVES, RouteConfig, Router} from "angular2/router";
 @RouteConfig([
   {path: "/robots", name: "Robots", component: RobotsListComponent, useAsDefault: true},
   {path: "/create-robot", name: "CreateRobot", component: CreateRobotComponent, useAsDefault: false},
-  {path: "/create-robot/:manufacturerParameter", name: "CreateRobotParameter", component: CreateRobotComponent, useAsDefault: false},
+  {path: "/create-robot/:manufacturerParameter/:modelParameter/:robotClassParameter", name: "CreateRobotParameter", component: CreateRobotComponent, useAsDefault: false},
   {path: "/contact", name: "Contact", component: ContactComponent, useAsDefault: false}
 ])
 
