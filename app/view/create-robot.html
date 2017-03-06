@@ -1,0 +1,23 @@
+<h2>Crear robot</h2>
+
+<p>
+  Serial: <input type="text" #serial />
+</p>
+
+<p>
+  Fabricante: <input type="text" #manufacturer />
+</p>
+
+<p>
+  Modelo: <input type="text" #model />
+</p>
+
+<p>
+  Clase: <input type="text" #robotClass />
+</p>
+
+<p>
+  Año fabricación: <input type="text" #manufacturingYear />
+</p>
+<input type="submit" value="Crear robot"
+  (click)="createRobot(serial.value, manufacturer.value, model.value, robotClass.value, manufacturingYear.value)" />
