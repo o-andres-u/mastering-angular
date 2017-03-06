@@ -1,11 +1,13 @@
 import {Component} from "angular2/core";
 import {Terminator} from "../model/Terminator";
 import {TerminatorService} from "../services/terminator.service";
+import {ROUTER_DIRECTIVES, RouteConfig, Router} from "angular2/router";
 
 @Component({
   selector: "robots-list",
   templateUrl: "app/view/robots-list.html",
-  providers: [TerminatorService]
+  providers: [TerminatorService],
+  directives: [ROUTER_DIRECTIVES]
 })
 
 export class RobotsListComponent {

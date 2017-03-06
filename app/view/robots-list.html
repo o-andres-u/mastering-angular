@@ -22,5 +22,6 @@
     <li *ngIf="terminator.model" (click)="onChangeRobot(terminator)" class="robot-model" [class.clicked]="robotSelected.serial === terminator.serial">Modelo: <strong>{{terminator.model}}</strong></li>
     <li *ngIf="terminator.robotClass">Clase: <strong>{{terminator.robotClass}}</strong></li>
     <li>Año de creación: <strong>{{terminator.manufacturingYear}}</strong></li>
+    <li><a [routerLink]="['CreateRobotParameter', {manufacturerParameter: terminator.manufacturer}]">Copiar robot</a></li>
   </ul>
 </ul>
