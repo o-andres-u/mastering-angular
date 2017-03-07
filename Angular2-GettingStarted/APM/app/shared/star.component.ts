@@ -1,7 +1,7 @@
 import {Component, OnChanges} from "@angular/core";
 @Component({
     selector: "ai-star",
-    templateUrl: "app/shared/start.component.html",
+    templateUrl: "app/shared/star.component.html",
     styleUrls:["app/shared/star.component.css"]
 })
 export class StarComponent implements OnChanges {
