@@ -43,7 +43,7 @@
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency:'USD':true:'1.2-2' | lowercase}}</td>
                         <td>
-                            <ai-star></ai-star>
+                            <ai-star [rating]='product.starRating'></ai-star>
                         </td>
                     </tr>
                 </tbody>
