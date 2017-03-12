@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
-var router_1 = require("@angular/router");
+var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var welcome_component_1 = require("./home/welcome.component");
 var product_module_1 = require("./products/product.module");
@@ -22,11 +22,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
-            router_1.RouterModule.forRoot([
-                { path: "welcome", component: welcome_component_1.WelcomeComponent },
-                { path: "", redirectTo: "welcome", pathMatch: "full" },
-                { path: "**", redirectTo: "welcome", pathMatch: "full" },
-            ], { useHash: true }),
+            app_routing_module_1.AppRoutingModule,
             product_module_1.ProductModule
         ],
         declarations: [

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { AppRoutingModule }  from './app-routing.module';
 import { AppComponent }  from './app.component';
 import { WelcomeComponent } from "./home/welcome.component";
 import { ProductModule } from "./products/product.module";
@@ -11,13 +12,7 @@ import { ProductModule } from "./products/product.module";
   imports: [ 
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot([
-        { path: "welcome", component: WelcomeComponent },
-        { path: "", redirectTo: "welcome", pathMatch: "full" },
-        { path: "**", redirectTo: "welcome", pathMatch: "full" },
-        //{ path: "**", component: PageNotFoundComponent },
-      ],
-      { useHash: true }),
+    AppRoutingModule,
     ProductModule
   ],
   declarations: [ 

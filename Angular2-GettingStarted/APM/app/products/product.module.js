@@ -6,8 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
 var shared_module_1 = require("../shared/shared.module");
+var product_routing_module_1 = require("./product-routing.module");
 var product_list_component_1 = require("./product-list.component");
 var product_detail_component_1 = require("./product-detail.component");
 var product_service_1 = require("./product.service");
@@ -27,10 +27,7 @@ ProductModule = __decorate([
         ],
         imports: [
             shared_module_1.SharedModule,
-            router_1.RouterModule.forChild([
-                { path: "products", component: product_list_component_1.ProductListComponent },
-                { path: "product/:id", canActivate: [product_guard_service_1.ProductDetailGuard], component: product_detail_component_1.ProductDetailComponent }
-            ])
+            product_routing_module_1.ProductRoutingModule
         ],
         providers: [
             product_service_1.ProductService,
