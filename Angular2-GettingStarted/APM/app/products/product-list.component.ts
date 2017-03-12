@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, OnDestroy } from "@angular/core";
 import { IProduct } from "./product";
-import {ProductService} from "./product.service";
+import { ProductService } from "./product.service";
 
 @Component({
     moduleId: module.id,
@@ -16,9 +16,7 @@ export class ProductListComponent implements OnInit, OnChanges, OnDestroy {
     products: IProduct[];
     errorMessage: string;
 
-    constructor(private _productService: ProductService){
-
-    }
+    constructor(private _productService: ProductService) { }
 
     ngOnInit(): void {
         this._productService.getProducts()
