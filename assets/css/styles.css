@@ -98,6 +98,7 @@ header h1{
     text-decoration: none;
     color: white;
     background: #0074d9;
+    cursor: pointer;
 }
 
 .btn-editar{
@@ -164,4 +165,12 @@ nav ul li a:hover{
     background: #1976d2;
     color: white;
     opacity: 0.8;
+}
+
+.seguro{
+    float: left;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    margin-top: -45px;
 }
