@@ -19,6 +19,8 @@ export class RestaurantesEditComponent implements OnInit {
     public restaurante: Restaurante;
     public errorMessage: string;
     public status: string;
+    public filesToUpload: Array<File>;
+    public resultUpload;
 
     constructor(private _restauranteService: RestauranteService,
                 private _routeParams: RouteParams,
@@ -82,5 +84,38 @@ export class RestaurantesEditComponent implements OnInit {
 
     callPrecio(value){
         this.restaurante.precio = value;
+    }
+
+
+    fileChangeEvent(fileInput: any){
+        this.filesToUpload = <Array<File>> fileInput.target.files;
+        this.makeFileRequest("http://localhost:8080/restaurante/uploadFile", [], this.filesToUpload).then((result) => {
+            this.resultUpload = result;
+            this.restaurante.imagen = this.resultUpload.filename;
+            console.log(result);
+        }, (error) => {
+            console.error(error);
+        });
+    }
+
+    makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+        return new Promise((resolve, reject) => {
+            var formData: any = new FormData();
+            var xhr = new XMLHttpRequest();
+            for(var i = 0; i < files.length; i++) {
+                formData.append("uploadfile", files[i], files[i].name);
+            }
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject(xhr.response);
+                    }
+                }
+            }
+            xhr.open("POST", url, true);
+            xhr.send(formData);
+        });
     }
 }

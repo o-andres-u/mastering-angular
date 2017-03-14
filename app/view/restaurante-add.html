@@ -30,5 +30,5 @@
     <p>
         <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)"/>
     </p>
-    <input type="submit" value="{{titulo}}" (click)="upload()" [disabled]="!formRestaurante.form.valid"/>
+    <input type="submit" value="{{titulo}}" [disabled]="!formRestaurante.form.valid"/>
 </form>

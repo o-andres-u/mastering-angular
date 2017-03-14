@@ -5,7 +5,9 @@
         <img src="../../assets/images/loader.gif" *ngIf="loading == 'show'"/>
     </li>
     <li *ngFor="let restaurante of restaurantes" class="restaurante-item">
-        <div class="image"></div>
+        <div class="image">
+            <img src="http://localhost:8080/restaurante/picture/{{restaurante.imagen}}" *ngIf="restaurante.imagen" />
+        </div>
         <div class="data">
             <h4>{{restaurante.nombre}}</h4>
             <p>{{restaurante.direccion}}</p>

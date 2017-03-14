@@ -17,6 +17,7 @@ export class RestaurantesAddComponent implements OnInit {
     public errorMessage: string;
     public status: string;
     public filesToUpload: Array<File>;
+    public resultUpload;
 
 
     constructor(private _restauranteService: RestauranteService,
@@ -50,7 +51,7 @@ export class RestaurantesAddComponent implements OnInit {
             0, this._routeParams.get("nombre"),
             this._routeParams.get("direccion"),
             this._routeParams.get("descripcion"),
-            null,
+            "null",
             "bajo")
 
     }
@@ -59,17 +60,15 @@ export class RestaurantesAddComponent implements OnInit {
         this.restaurante.precio = value;
     }
 
-    upload() {
+    fileChangeEvent(fileInput: any){
+        this.filesToUpload = <Array<File>> fileInput.target.files;
         this.makeFileRequest("http://localhost:8080/restaurante/uploadFile", [], this.filesToUpload).then((result) => {
-            //this.restaurante.imagen = result.filename;
+            this.resultUpload = result;
+            this.restaurante.imagen = this.resultUpload.filename;
             console.log(result);
         }, (error) => {
             console.error(error);
         });
-    }
-
-    fileChangeEvent(fileInput: any){
-        this.filesToUpload = <Array<File>> fileInput.target.files;
     }
 
     makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
@@ -92,38 +91,4 @@ export class RestaurantesAddComponent implements OnInit {
             xhr.send(formData);
         });
     }
-
-    /*
-
-    fileChangeEvent(fileInput : any){
-        this.filesToUpload = <File>fileInput.target.files;
-
-        this.makeFileRequest("http://localhost:8080/restaurante/uploadFile", this.filesToUpload)
-            .then((result) => {
-                this.restaurante.imagen = result.filename;
-                console.log(result.filename)
-            }, (error) => {
-                console.log(error)
-            });
-
-    }
-
-    makeFileRequest(url : string, files: File ){
-        return new Promise((resolve, reject)=>{
-            var formData: any = new FormData();
-            var xhr = new XMLHttpRequest();
-
-            formData.append("uploadfile", files, files.name)
-
-            xhr.onreadystatechange =function () {
-                if(xhr.readyState == 4){
-                    if(xhr.status == 200){
-                        resolve(JSON.parse(xhr.response))
-                    }
-                }
-            }
-            xhr.open("POST", url, true);
-            xhr.send(formData);
-        });
-    }*/
 }
