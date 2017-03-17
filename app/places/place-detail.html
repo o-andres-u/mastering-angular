@@ -1,0 +1,13 @@
+<div class="place-box" *ngIf="place">
+  <img class="image-detail" src="http://localhost:4000/api/uploads/{{place.place_image}}" *ngIf="place.place_image && place.place_image !== 'null'" />
+  <div class="place-data">
+    <h1>Place: {{place.name}} </h1>
+    <p class="score">
+      <span [ngSwitch]="place.classification">
+        <span *ngSwitchWhen="'top'">Top</span>
+        <span *ngSwitchWhen="'avarage'">About avarage</span>
+        <span *ngSwitchWhen="'low'">Low interesting</span>
+      </span>
+    </p>
+  </div>
+</div>
