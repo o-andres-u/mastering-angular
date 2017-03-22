@@ -4,11 +4,13 @@ import {RestaurantesListComponent} from './components/restaurantes-list.componen
 import {RestaurantesDetailComponent} from './components/restaurantes-detail.component';
 import {RestaurantesAddComponent} from './components/restaurantes-add.component';
 import {RestaurantesEditComponent} from './components/restaurantes-edit.component';
+import {PruebasPipe} from "./pipes/pruebas.pipe";
 
 @Component({
     selector: 'my-app',
     templateUrl: 'app/view/home.html',
-    directives: [RestaurantesListComponent, ROUTER_DIRECTIVES]
+    directives: [RestaurantesListComponent, ROUTER_DIRECTIVES],
+    pipes : [PruebasPipe]
 })
 
 @RouteConfig([
