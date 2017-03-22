@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var router_deprecated_1 = require("@angular/router-deprecated");
+var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var restaurante_service_1 = require("../services/restaurante.service");
 var restaurante_1 = require("../model/restaurante");
 var RestaurantesAddComponent = (function () {
@@ -73,17 +73,15 @@ var RestaurantesAddComponent = (function () {
             xhr.send(formData);
         });
     };
+    RestaurantesAddComponent = __decorate([
+        core_1.Component({
+            selector: "restaurantes-add",
+            templateUrl: "app/view/restaurante-add.html",
+            providers: [restaurante_service_1.RestauranteService]
+        }), 
+        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+    ], RestaurantesAddComponent);
     return RestaurantesAddComponent;
 }());
-RestaurantesAddComponent = __decorate([
-    core_1.Component({
-        selector: "restaurantes-add",
-        templateUrl: "app/view/restaurante-add.html",
-        providers: [restaurante_service_1.RestauranteService]
-    }),
-    __metadata("design:paramtypes", [restaurante_service_1.RestauranteService,
-        router_deprecated_1.RouteParams,
-        router_deprecated_1.Router])
-], RestaurantesAddComponent);
 exports.RestaurantesAddComponent = RestaurantesAddComponent;
 //# sourceMappingURL=restaurantes-add.component.js.map

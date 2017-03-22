@@ -2,7 +2,7 @@
  * Created by alejandropalacio on 9/03/17.
  */
 import {Component, OnInit} from '@angular/core';
-import {Router, RouteParams} from '@angular/router';
+import {Router, RouteParams} from '@angular/router-deprecated';
 import {RestauranteService} from "../services/restaurante.service";
 import {Restaurante} from "../model/restaurante";
 

@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by alejandropalacio on 9/03/17.
  */
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var restaurante_service_1 = require("../services/restaurante.service");
 var RestaurantesDetailComponent = (function () {
     function RestaurantesDetailComponent(_restauranteService, _routeParams, _router) {
@@ -42,16 +42,15 @@ var RestaurantesDetailComponent = (function () {
             }
         });
     };
+    RestaurantesDetailComponent = __decorate([
+        core_1.Component({
+            selector: "restaurantes-detail",
+            templateUrl: "app/view/restaurante-detail.html",
+            providers: [restaurante_service_1.RestauranteService]
+        }), 
+        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+    ], RestaurantesDetailComponent);
     return RestaurantesDetailComponent;
 }());
-RestaurantesDetailComponent = __decorate([
-    core_1.Component({
-        selector: "restaurantes-detail",
-        templateUrl: "app/view/restaurante-detail.html",
-        providers: [restaurante_service_1.RestauranteService]
-    }),
-    __metadata("design:paramtypes", [restaurante_service_1.RestauranteService, typeof (_a = typeof router_1.RouteParams !== "undefined" && router_1.RouteParams) === "function" && _a || Object, router_1.Router])
-], RestaurantesDetailComponent);
 exports.RestaurantesDetailComponent = RestaurantesDetailComponent;
-var _a;
 //# sourceMappingURL=restaurantes-detail.component.js.map

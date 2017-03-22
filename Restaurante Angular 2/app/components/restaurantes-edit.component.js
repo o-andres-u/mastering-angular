@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by alejandropalacio on 10/03/17.
  */
-var core_1 = require("@angular/core");
-var router_deprecated_1 = require("@angular/router-deprecated");
+var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var restaurante_service_1 = require("../services/restaurante.service");
 var restaurante_1 = require("../model/restaurante");
 var RestaurantesEditComponent = (function () {
@@ -95,17 +95,15 @@ var RestaurantesEditComponent = (function () {
             xhr.send(formData);
         });
     };
+    RestaurantesEditComponent = __decorate([
+        core_1.Component({
+            selector: "restaurantes-edit",
+            templateUrl: "app/view/restaurante-add.html",
+            providers: [restaurante_service_1.RestauranteService]
+        }), 
+        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+    ], RestaurantesEditComponent);
     return RestaurantesEditComponent;
 }());
-RestaurantesEditComponent = __decorate([
-    core_1.Component({
-        selector: "restaurantes-edit",
-        templateUrl: "app/view/restaurante-add.html",
-        providers: [restaurante_service_1.RestauranteService]
-    }),
-    __metadata("design:paramtypes", [restaurante_service_1.RestauranteService,
-        router_deprecated_1.RouteParams,
-        router_deprecated_1.Router])
-], RestaurantesEditComponent);
 exports.RestaurantesEditComponent = RestaurantesEditComponent;
 //# sourceMappingURL=restaurantes-edit.component.js.map

@@ -49,11 +49,11 @@ var RestauranteService = (function () {
         return this._http.delete("http://localhost:8080/restaurante/" + id)
             .map(function (res) { return res.json(); });
     };
+    RestauranteService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], RestauranteService);
     return RestauranteService;
 }());
-RestauranteService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], RestauranteService);
 exports.RestauranteService = RestauranteService;
 //# sourceMappingURL=restaurante.service.js.map
