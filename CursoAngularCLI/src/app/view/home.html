@@ -1,0 +1,21 @@
+
+<br/>
+<header id="header">
+    <a [routerLink] = "['/']">
+    <img src="assets/images/angular.png" id="logo"/>
+    </a>
+    <h1>{{titulo}}</h1>
+    <div class="clearfix"></div>
+</header>
+<nav id="nav">
+    <ul>
+        <li><a [routerLink] = "['/']">Inicio</a></li>
+        <li><a [routerLink] = "['/crear-restaurante']">Crear Restaurante</a></li>
+        <li><a [routerLink] = "['/donde-como-hoy', 'true']">Donde comer hoy?</a></li>
+
+    </ul>
+</nav>
+<section class="main">
+    <router-outlet></router-outlet>
+    <div class="clearfix"></div>
+</section>
