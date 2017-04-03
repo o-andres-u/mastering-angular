@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by alejandropalacio on 6/03/17.
  */
-var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var core_1 = require("@angular/core");
+var router_deprecated_1 = require("@angular/router-deprecated");
 var restaurante_service_1 = require("../services/restaurante.service");
 var RestaurantesListComponent = (function () {
     function RestaurantesListComponent(_restauranteService) {
@@ -65,16 +65,16 @@ var RestaurantesListComponent = (function () {
             }
         });
     };
-    RestaurantesListComponent = __decorate([
-        core_1.Component({
-            selector: 'restaurantes-list',
-            templateUrl: 'app/view/restaurantes-list.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-            providers: [restaurante_service_1.RestauranteService]
-        }), 
-        __metadata('design:paramtypes', [restaurante_service_1.RestauranteService])
-    ], RestaurantesListComponent);
     return RestaurantesListComponent;
 }());
+RestaurantesListComponent = __decorate([
+    core_1.Component({
+        selector: 'restaurantes-list',
+        templateUrl: 'app/view/restaurantes-list.html',
+        directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+        providers: [restaurante_service_1.RestauranteService]
+    }),
+    __metadata("design:paramtypes", [restaurante_service_1.RestauranteService])
+], RestaurantesListComponent);
 exports.RestaurantesListComponent = RestaurantesListComponent;
 //# sourceMappingURL=restaurantes-list.component.js.map
