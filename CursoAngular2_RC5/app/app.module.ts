@@ -1,6 +1,7 @@
 // Modulos de Angular
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpModule, JsonpModule} from '@angular/http'
 //config router
 import {routing, appRoutingProviders} from './app.routing';
 // Componentes
@@ -11,6 +12,7 @@ import {CiudadesComponent} from './components/ciudades.component';
 @NgModule({
   imports:      [
       BrowserModule,
+      HttpModule,
       routing
   ],
   declarations: [
