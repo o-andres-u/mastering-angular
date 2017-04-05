@@ -8,20 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// Importar el núcleo de Angular
+/**
+ * Created by alejandropalacio on 5/04/17.
+ */
 var core_1 = require('@angular/core');
-// Decorador component, indicamos en que etiqueta se va a cargar la plantilla
-var AppComponent = (function () {
-    function AppComponent() {
+var PaisesComponent = (function () {
+    function PaisesComponent() {
     }
-    AppComponent = __decorate([
+    PaisesComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>Hola mundo con Angular 2</h1>\n    <nav>\n        <a routerLink = \"/paises\">Paises</a>\n        <a routerLink=\"/ciudades\">Ciudades</a>\n        <a routerLink=\"/la-ciudad/12\">La ciudad</a>\n    </nav>\n    <router-outlet></router-outlet>\n    "
+            selector: 'paises',
+            template: "\n        <h2>Paises</h2>\n        <ul>\n            <li>Espa\u00F1a</li>\n            <li>M\u00E9xico</li>\n            <li>Colombia</li>\n        </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], PaisesComponent);
+    return PaisesComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.PaisesComponent = PaisesComponent;
+//# sourceMappingURL=paises.component.js.map
