@@ -4,6 +4,7 @@
 import {Routes, RouterModule} from '@angular/router';
 import {PaisesComponent} from './components/paises.component';
 import {CiudadesComponent} from './components/ciudades.component';
+import {MiFormularioComponent} from './components/mi-formulario.component';
 
 const appRoutes: Routes = [
     {
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
     },
     {path: 'paises', component: PaisesComponent},
     {path: 'ciudades', component: CiudadesComponent},
-    {path: 'la-ciudad/:id', component: CiudadesComponent}
+    {path: 'la-ciudad/:id', component: CiudadesComponent},
+    {path: 'mi-formulario', component: MiFormularioComponent}
 ];
 
 export const appRoutingProviders : any[] = [];

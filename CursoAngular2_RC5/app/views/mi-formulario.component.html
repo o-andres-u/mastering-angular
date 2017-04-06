@@ -1,0 +1,28 @@
+<h1>Mi Formulario</h1>
+<div [hidden] = "enviado">
+    <form (ngSubmit) = "onSubmit()" #peliculaForm="ngForm">
+        <div>
+            <label>Titulo:</label>
+            <input type="text" id="titulo" name="titulo" #titulo ="ngModel" [(ngModel)]="pelicula.titulo" required>
+            <div *ngIf="!titulo.valid && titulo.touched">El titulo es obligatorio</div>
+        </div>
+        <div>
+            <label>Categorias</label>
+            <select id="categoria" name="categoria" #categoria = "ngModel" [(ngModel)]="pelicula.categoria" required>
+                <option value="Ninguna" selected >Ninguna</option>
+                <option *ngFor=" let cat of categorias" [value]="cat">{{cat}}</option>
+            </select>
+        </div>
+        <input type="submit" value="Enviar"/>
+    </form>
+</div>
+
+<div [hidden] = "!enviado">
+    <h2>Datos Enviados:</h2>
+    <p>
+        <strong>Titulo: </strong>{{pelicula.titulo}}
+    </p>
+    <p>
+        <strong>Categoria: </strong>{{pelicula.categoria}}
+    </p>
+</div>

@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by alejandropalacio on 5/04/17.
  */
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
 var PaisesService = (function () {
     function PaisesService(_http) {
         this._http = _http;
@@ -22,11 +22,11 @@ var PaisesService = (function () {
         return this._http.get("https://jsonplaceholder.typicode.com/posts")
             .map(function (res) { return res.json(); });
     };
+    PaisesService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], PaisesService);
     return PaisesService;
 }());
-PaisesService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], PaisesService);
 exports.PaisesService = PaisesService;
 //# sourceMappingURL=paises.service.js.map

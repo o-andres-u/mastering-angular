@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by alejandropalacio on 5/04/17.
  */
-var core_1 = require("@angular/core");
-var paises_service_1 = require("../services/paises.service");
+var core_1 = require('@angular/core');
+var paises_service_1 = require('../services/paises.service');
 var PaisesComponent = (function () {
     function PaisesComponent(_paisesService) {
         var _this = this;
@@ -26,15 +26,15 @@ var PaisesComponent = (function () {
             console.log(error);
         });
     }
+    PaisesComponent = __decorate([
+        core_1.Component({
+            selector: 'paises',
+            template: "\n        <h2>Paises</h2>\n        <ul>\n            <li>Espa\u00F1a</li>\n            <li>M\u00E9xico</li>\n            <li>Colombia</li>\n        </ul>\n        <h2>Listado de POSTS</h2>\n        <ol *ngIf=\"posts\">\n            <li *ngFor=\"let post of posts\">{{post.title}}</li>\n        </ol>\n    ",
+            providers: [paises_service_1.PaisesService]
+        }), 
+        __metadata('design:paramtypes', [paises_service_1.PaisesService])
+    ], PaisesComponent);
     return PaisesComponent;
 }());
-PaisesComponent = __decorate([
-    core_1.Component({
-        selector: 'paises',
-        template: "\n        <h2>Paises</h2>\n        <ul>\n            <li>Espa\u00F1a</li>\n            <li>M\u00E9xico</li>\n            <li>Colombia</li>\n        </ul>\n        <h2>Listado de POSTS</h2>\n        <ol *ngIf=\"posts\">\n            <li *ngFor=\"let post of posts\">{{post.title}}</li>\n        </ol>\n    ",
-        providers: [paises_service_1.PaisesService]
-    }),
-    __metadata("design:paramtypes", [paises_service_1.PaisesService])
-], PaisesComponent);
 exports.PaisesComponent = PaisesComponent;
 //# sourceMappingURL=paises.component.js.map

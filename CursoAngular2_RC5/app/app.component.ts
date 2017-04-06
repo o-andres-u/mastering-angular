@@ -10,6 +10,7 @@ import {Component} from '@angular/core';
         <a routerLink = "/paises">Paises</a>
         <a routerLink="/ciudades">Ciudades</a>
         <a routerLink="/la-ciudad/12">La ciudad</a>
+        <a routerLink="/mi-formulario">Mi Formulario</a>
     </nav>
     <router-outlet></router-outlet>
     `

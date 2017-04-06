@@ -3,7 +3,6 @@
  */
 import {Component} from '@angular/core';
 import {PaisesService} from '../services/paises.service';
-import {error} from "util";
 
 @Component({
     selector:'paises',
