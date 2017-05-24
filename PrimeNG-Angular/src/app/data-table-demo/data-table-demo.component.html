@@ -1,0 +1,21 @@
+
+<p-growl [value]="msgs"></p-growl>
+<p-dataTable [value]="cars">
+  <p-column field="vin" header="Vin"></p-column>
+  <p-column field="year" header="Year"></p-column>
+  <p-column field="brand" header="Brand"></p-column>
+  <p-column field="color" header="Color">
+    <ng-template let-col let-car="rowData" pTemplate="body">
+      <span [style.color]="car[col.field]">{{car[col.field]}}</span>
+    </ng-template>
+  </p-column>
+  <p-column styleClass="col-button">
+    <ng-template pTemplate="header">
+      <button type="button" pButton icon="fa-refresh"></button>
+    </ng-template>
+    <ng-template let-car="rowData" pTemplate="body">
+      <button type="button" pButton (click)="selectCar(car)" icon="fa-search"></button>
+    </ng-template>
+  </p-column>
+</p-dataTable>
+
