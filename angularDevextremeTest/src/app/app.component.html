@@ -1,0 +1,61 @@
+<dx-validation-group>
+<dx-text-box [(value)]="name" width="300">
+  <dx-validator>
+    <dxi-validation-rule
+     type="required"
+     message="Login is required">
+     </dxi-validation-rule>
+  </dx-validator>
+</dx-text-box>
+<dx-button text="Angular DevExtreme" (onClick)="sayHello($event)" [useSubmitBehavior]="true"></dx-button>
+<dx-validation-group>
+
+<br/><br/>
+<dx-data-grid  
+    id="gridContainer"
+    [dataSource]="dataSource"
+    [customizeColumns]="customizeColumns"
+    [allowColumnReordering]="true"
+    [allowColumnResizing]="true"
+    [columnResizingMode]="columnResizingMode"
+    [columnMinWidth]="50"
+    [columnAutoWidth]="true"
+    [hoverStateEnabled]="true"
+    [showRowLines]="true"
+    [showBorders]="true"
+    [rowAlternationEnabled]="true"
+    (onInitNewRow)="logEvent('InitNewRow')"
+    (onCellPrepared)="onCellPrepared($event)"
+    (onToolbarPreparing)="onToolbarPreparing($event)"
+    (onSelectionChanged)="selectionChanged($event)"
+    [masterDetail]="{ enabled: true, template: 'detail' }">
+    //Ordenable
+    <dxo-sorting mode="multiple"></dxo-sorting>
+
+    <dxo-selection mode="single"></dxo-selection>
+
+    <dxo-grouping [autoExpandAll]="expanded"></dxo-grouping>
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+
+    <dxo-scrolling mode="infinite"></dxo-scrolling>
+
+    <dxo-editing 
+         mode="cell"
+         [allowUpdating]="true"
+         [allowAdding]="true"
+         [allowDeleting]="true">
+    </dxo-editing>
+
+    <dxi-column dataField="CompanyName"></dxi-column>
+    <dxi-column dataField="City"></dxi-column>
+    <dxi-column dataField="State"></dxi-column>
+    <dxi-column dataField="Phone"></dxi-column>
+    <dxi-column dataField="Fax"></dxi-column>
+
+     <div *dxTemplate="let company of 'detail'">
+        <div class="internal-grid-container">
+            <div>{{company.data.CompanyName}}</div>
+        </div>
+    </div>
+
+</dx-data-grid>
