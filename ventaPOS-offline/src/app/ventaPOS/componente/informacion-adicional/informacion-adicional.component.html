@@ -1,0 +1,50 @@
+<label for="codigoCentro">Centro</label>
+<input type="text" class="form-control" id="codigoCentro" required [(ngModel)]="pedido.centro.codigo" name="codigoCentro"
+  #codigoCentro="ngModel">
+<div [hidden]="codigoCentro.valid || codigoCentro.pristine" class="alert alert-danger">
+  Centro es obligatorio
+</div>
+<div [class.has-danger]="!autocompleteCentro.valid">
+  <ng2-completer name="autocompleteCentro" [datasource]="dataServiceCentro" [(ngModel)]="searchCentro" [minSearchLength]="0"
+    [placeholder]="'search'" #autocompleteCentro="ngModel" [autoMatch]="true" [clearUnselected]="true" required>
+  </ng2-completer>
+  <div *ngIf="!autocompleteCentro.valid">Centro requerido
+  </div>
+</div>
+
+<div>
+  <label for="formaPago">Unidad</label>
+  <div [class.has-danger]="!autocompleteUnidad.valid">
+    <ng2-completer name="autocompleteUnidad" [datasource]="dataServiceUnidad" [(ngModel)]="searchUnidad" [minSearchLength]="0"
+      [placeholder]="'search'" #autocompleteUnidad="ngModel" [autoMatch]="true" [clearUnselected]="true" required>
+    </ng2-completer>
+    <div *ngIf="!autocompleteUnidad.valid">Unidad requerido
+    </div>
+  </div>
+</div>
+<label for="idVendedor">Vendedor</label>
+<input type="text" class="form-control" id="idVendedor" required [(ngModel)]="pedido.vendedor.id" name="idVendedor" #idVendedor="ngModel">
+<div [hidden]="idVendedor.valid || idVendedor.pristine" class="alert alert-danger">
+  vendedor es obligatorio
+</div>
+<div>
+  <div [class.has-danger]="!autocompleteVendedor.valid">
+    <ng2-completer name="autocompleteVendedor" [datasource]="dataServiceVendedor" [(ngModel)]="searchVendedor" [minSearchLength]="0"
+      [placeholder]="'search'" #autocompleteVendedor="ngModel" [autoMatch]="true" [clearUnselected]="true" required>
+    </ng2-completer>
+    <div *ngIf="!autocompleteVendedor.valid">Vendedor requerido
+    </div>
+  </div>
+</div>
+<label for="moneda">Moneda</label>
+<input type="text" class="form-control" id="codigoMoneda" required [(ngModel)]="pedido.moneda.codigo" name="codigoMoneda"
+  #codigoMoneda="ngModel" disabled>
+<label for="moneda">Tasa</label>
+<input type="text" class="form-control" id="tasaCambio" required [(ngModel)]="pedido.tasaCambio" name="tasaCambio" #tasaCambio="ngModel"
+  disabled>
+<label for="descuentoPiePag">% Dcto. Pie p.</label>
+<input type="text" class="form-control" id="descuentoPiePag" required [(ngModel)]="pedido.descuentoPiePag" name="descuentoPiePag"
+  #descuentoPiePag="ngModel">
+<div [hidden]="descuentoPiePag.valid || descuentoPiePag.pristine" class="alert alert-danger">
+  Descuento pie pag. es obligatorio
+</div>

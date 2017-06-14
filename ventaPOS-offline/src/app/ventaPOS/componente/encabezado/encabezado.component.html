@@ -1,0 +1,40 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #ventaPosForm="ngForm">
+      <div class="form-group">
+        <label for="idCliente">Cliente</label>
+        <input type="text" class="form-control" id="idCliente" required [(ngModel)]="pedido.cliente.id" name="idCliente" #idCliente="ngModel">
+        <div [hidden]="idCliente.valid || idCliente.pristine" class="alert alert-danger">
+          id es obligatorio
+        </div>
+        <input type="text" class="form-control" id="nombreCompleto" required [(ngModel)]="pedido.cliente.nombreCompleto" name="nombreCompleto"
+          #nombreCompleto="ngModel">
+        <div [hidden]="nombreCompleto.valid || nombreCompleto.pristine" class="alert alert-danger">
+          Nombre es obligatorio
+        </div>
+        <my-date-picker name="fechaFactura" [options]="fechaFacturaOptions" #fechaFactura="ngModel" [(ngModel)]="model" required
+          (dateChanged)="onDateChanged($event)">
+        </my-date-picker>
+
+        <div [class.has-danger]="!autocompleteFormaPago.valid">
+          <ng2-completer name="autocompleteFormaPago" [datasource]="dataService" [(ngModel)]="searchFormaPago" [minSearchLength]="0"
+            [placeholder]="'search'" #autocompleteFormaPago="ngModel" [autoMatch]="true" [clearUnselected]="true" required>
+          </ng2-completer>
+          <div *ngIf="!autocompleteFormaPago.valid">Forma de pago requerida
+          </div>
+        </div>
+
+        <my-date-picker name="fechaVencimiento" [options]="fechaFacturaOptions" [locale]="locale" #fechaVencimiento="ngModel" [(ngModel)]="model"
+          required (dateChanged)="onDateChanged($event)">
+        </my-date-picker>
+        <label for="precioConImpuesto">Precios con</label>
+        <input [ngModel]="pedido.precioIncluyeImpuestos | impuestoInluidoPrecio" #precioConImpuesto="ngModel" name="precioConImpuesto"
+          type="text" disabled>
+      </div>
+      <button (click)="put()"
+        type="button" class="btn btn-primary">post this as new Pedido</button>
+        <button (click)= "newDocument()">New Document</button>
+      <app-informacion-adicional></app-informacion-adicional>
+    </form>
+  </div>
+</div>
