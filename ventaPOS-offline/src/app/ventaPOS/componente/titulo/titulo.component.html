@@ -1,0 +1,30 @@
+<div class="clearfix venta-pos-title">
+ <div class="col-xs-12 col-lg-6 inline-block">
+  <div class="col-xs-12 p0 col-sm-6 col-md-7 form-group p0 pt-label">
+   <h1>Venta POS</h1>
+   <span>(Nro. {{pedido.numeroPedido}}) - {{pedido.estadoPedido.descripcion}} <span class="v-divider hidden-xs">|</span></span>
+  </div>
+  <div class="col-xs-12 p0 col-sm-6 col-md-5 p0">
+    <div class="input-group">
+     <input type="text" class="form-control" placeholder="Buscar en Venta POS">
+     <span class="input-group-btn">
+       <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+     </span>
+   </div>
+  </div>
+ </div>
+ <div class="col-xs-12 col-lg-6 inline-block main-btns p0">
+  <button class="btn btn-default orange">Finalizar</button>
+  <button class="btn btn-default gray">Nueva Venta</button>
+  <button class="btn btn-default gray ">Lista de Ventas POS</button>
+  <div class="input-group-btn btn-drop">
+    <button type="button" class="btn btn-default dropdown-toggle gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Más opciones <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Eliminar</a></li>
+      <li><a href="#">Imprimir</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Lista de Facturas de Venta</a></li>
+    </ul>
+  </div>
+ </div>
+</div>

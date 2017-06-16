@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+
+$fz:14px;
+$f-sm: '(min-width:768px)';
+$f-md: '(min-width:992px)';
+$f-lg: '(min-width:1200px)';
+$u-sm: '(max-width:767px)';
+$u-md: '(max-width:991px)';
+$u-lg: '(max-width:1199px)';
+body {
+    font-size: $fz; 
+    @media #{$f-sm}{
+        font-size: $fz+1;
+    }
+     @media #{$f-md}{
+        font-size: $fz+2;
+    }
+    
+    h1{
+        font-size: $fz+4px;
+        @media #{$f-sm}{
+            font-size: $fz+5px;
+        }
+        @media #{$f-md}{
+            font-size: $fz+6px;
+        }
+    }
+    
+    h2{
+        font-size: $fz+3px;
+        @media #{$f-sm}{
+            font-size: $fz+4px;
+        }
+        @media #{$f-md}{
+            font-size: $fz+5px;
+        }
+    }
+    
+    h3{
+        font-size: $fz+2px;
+        @media #{$f-sm}{
+            font-size: $fz+3px;
+        }
+        @media #{$f-md}{
+            font-size: $fz+4px;
+        }
+    }
+    
+    h1, h2, h3 {
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+.nav-tabs {
+    button {
+        position: absolute;
+        right: 7px;
+        font-size: 12px;
+        top: 3px;
+        height: 19px;
+        padding: 1px;
+        border: 0;
+        background-color: transparent;
+        
+        i {
+            font-size: 10px;
+        }
+    }
+    
+    > li{
+        > a {
+            padding-left: 5px;
+            padding-right: 22px;
+        }
+    }
+}
+
+.p0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pt-label {
+    padding-top: 5px;
+}
+
+.p0l {
+    padding-left: 0;
+}
+
+.p0r {
+    padding-right: 0;
+}
+
+.orange {
+    $color1: #f6e6b4;
+    $color2: #f2a94a;
+    color:#68696A;
+    font-weight: 600;
+    background: $color1; /* Old browsers */
+    background: -moz-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, $color1 1%, $color1 1%, $color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=0 ); /* IE6-9 */
+    
+    &:hover, &:focus, &:active {
+        $color1: #eebe2e;
+        $color2: #d2a160;
+        background: $color1; /* Old browsers */
+        background: -moz-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $color1 1%, $color1 1%, $color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=0 ); /* IE6-9 */
+    }
+}
+
+.gray {
+    $color1: #f0f0f0;
+    $color2: #b8b8b8;
+    color:#68696A;
+    font-weight: 600;
+    background: $color1; /* Old browsers */
+    background: -moz-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, $color1 1%, $color1 1%, $color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=0 ); /* IE6-9 */
+    
+    &:hover, &:focus, &:active {
+        $color1: #cecccc;
+        $color2: #919191;
+        background: $color1; /* Old browsers */
+        background: -moz-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $color1 1%, $color1 1%, $color2 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $color1 1%, $color1 1%, $color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=0 ); /* IE6-9 */
+    }
+}
+
+@mixin br($val){
+    -webkit-border-radius: $val;
+    -moz-border-radius: $val;
+    -ms-border-radius: $val;
+    -o-border-radius: $val;
+    border-radius: $val;
+}

@@ -1,0 +1,69 @@
+<div class="clearfix venta-pos-encabezado"> 
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #ventaPosForm="ngForm">
+      <div class="form-group">
+       
+        <div class="clearfix">
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-1">
+                <label for="idCliente"><span class="asterisk">*</span>Cliente</label>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+               <label for=""><span class="asterisk">*</span>Fecha</label></div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+               <label for="idCliente"><span class="asterisk">*</span>Forma de Pago</label>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              
+            </div>
+        </div>
+        <div class="clearfix">          
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-1">
+              <input type="text" class="form-control" id="idCliente" required [(ngModel)]="pedido.cliente.id" name="idCliente" #idCliente="ngModel">
+              <div [hidden]="idCliente.valid || idCliente.pristine" class="alert alert-danger">
+                Requerido
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <input type="text" class="form-control" id="nombreCompleto" required [(ngModel)]="pedido.cliente.nombreCompleto" name="nombreCompleto"
+                #nombreCompleto="ngModel">
+              <div [hidden]="nombreCompleto.valid || nombreCompleto.pristine" class="alert alert-danger">
+                Nombre Requerido
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+             <<!-- <my-date-picker name="fechaFactura" [options]="fechaFacturaOptions" [(ngModel)]="model" required (dateChanged)="onDateChanged($event)">
+              </my-date-picker>-->
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <!--<div [class.has-danger]="!autocompleteFormaPago.valid">
+                <ng2-completer name="autocompleteFormaPago" [datasource]="dataService" [(ngModel)]="searchFormaPago" [minSearchLength]="0"
+                  [placeholder]="'search'" #autocompleteFormaPago="ngModel" [autoMatch]="true" [clearUnselected]="true" required>
+                </ng2-completer>
+                 <div *ngIf="!autocompleteFormaPago.valid" class="alert alert-danger">Requerido
+              </div>
+              </div>-->
+             
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              
+            </div>
+        </div>
+
+        <!--<my-date-picker name="FechaVencimiento" [options]="fechaFacturaOptions" [locale]="locale" [(ngModel)]="model" required (dateChanged)="onDateChanged($event)">
+        </my-date-picker>-->
+        <label for="precioConImpuesto">Precios con</label>
+        <input [ngModel]="pedido.precioIncluyeImpuestos | impuestoInluidoPrecio" name="precioConImpuesto" type="text" disabled>
+      </div>
+      <app-informacion-adicional></app-informacion-adicional>
+    </form>
+  </div>
+</div>

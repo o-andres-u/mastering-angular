@@ -1,0 +1,36 @@
+@import '../../../../styles';
+.venta-pos-title {
+    h1 {
+        display: inline-block;
+    }
+
+    > div {
+        padding-top: 15px;
+    }
+    
+    .main-btns {
+        text-align: center;
+        @media #{$f-lg}{
+            text-align: right;
+        }
+        
+        .btn-drop {
+            display: inline-block;
+            width: auto;
+            left: 1px;
+        }
+        
+        button:not(.dropdown-toggle), .btn-drop{
+            margin-bottom: 15px;
+        }
+        
+        .dropdown-toggle {
+            @include br(4px);
+        }
+    }
+    
+    .v-divider {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
