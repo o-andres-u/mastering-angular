@@ -32,20 +32,20 @@ public class CandidatoController {
 	@Autowired
 	private ICandidatoService candidatoService;
 	
-	
-  @RequestMapping(value = "/almacenarCandidato", method = RequestMethod.POST, headers = "Content-Type=multipart/form-data")
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/almacenarCandidato", method = RequestMethod.POST, headers = "Content-Type=multipart/form-data")
 	public ResponseEntity<CandidatoResponse> guardarCandidato(
 			@RequestParam("hojaVidaFile") MultipartFile hojavida, @RequestParam("candidato") Candidato candidato) throws IOException {
 		return new ResponseEntity<>(candidatoService.almacenarCandidato(hojavida, candidato), HttpStatus.OK);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:9000")
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/consultaCompetencias", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<CompetenciaResponse> getListaCompetenciasCandidato(){
         return new ResponseEntity<>(competenciaService.getCompetenciaCandidato(), HttpStatus.OK);
     }
 	
-//	@CrossOrigin(origins = "http://localhost:9000")
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/actualizarCompetencias", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<CandidatoResponse> actualizarCompetenciaCandidato(@RequestBody Candidato candidato){
         return new ResponseEntity<>(competenciaService.actualizarNivelCompetenciaCandidato(candidato), HttpStatus.OK);
