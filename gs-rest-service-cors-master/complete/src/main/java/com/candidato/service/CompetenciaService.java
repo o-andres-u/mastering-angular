@@ -63,7 +63,6 @@ public class CompetenciaService implements ICompetenciaService{
 		CandidatoResponse response = new CandidatoResponse();
 		response.setSuccess(true);
 		response.setHojaVidaDto((IngresoHojaVidaDTO) respuestaServicio.getReturn());
-		correoService.enviarEmail(candidato);
     	return response;
 	}	
 
