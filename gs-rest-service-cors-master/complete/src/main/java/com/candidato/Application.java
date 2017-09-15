@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import com.candidato.interfaces.IAlmacenarArchivoService;
 import com.candidato.service.AlmacenarArchivoProperties;
@@ -13,6 +14,7 @@ import com.candidato.service.AlmacenarArchivoProperties;
 
 
 @SpringBootApplication
+@EnableAsync
 @EnableConfigurationProperties(AlmacenarArchivoProperties.class)
 public class Application {
 

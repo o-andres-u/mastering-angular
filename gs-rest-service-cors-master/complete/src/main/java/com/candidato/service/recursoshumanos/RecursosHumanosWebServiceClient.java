@@ -6,6 +6,7 @@ import javax.xml.namespace.QName;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
@@ -20,8 +21,8 @@ public class RecursosHumanosWebServiceClient extends WebServiceGatewaySupport {
 
 	private static final Logger log = LoggerFactory.getLogger(RecursosHumanosWebServiceClient.class);
 	
-//	@Value("${client.default.uri}")
-	private String defaultUri = "https://epalaciod:8182/RecursosHumanos/RecursosHumanos";
+	@Value("${spring.client.user.uri}")
+	private String defaultUri;
 	
 	
 	public ConsultarCompetenciasLaboralesResponse getCompetenciasLaboralesFromWebService(String uuidTenant, String tipoIdCompania, String idCompania ) {

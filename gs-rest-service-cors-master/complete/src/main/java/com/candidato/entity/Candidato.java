@@ -31,7 +31,7 @@ public class Candidato {
 	private String descripcionOrigenContacto;
 	
 	/** Lista de competencias del candidato. */
-	private ArrayList<Competencia> listCompetencia;
+	private ArrayList<Competencia> listaCompetencias;
 	
 	/**
 	 * Constructor de la clase.
@@ -39,16 +39,16 @@ public class Candidato {
 	 * @param numeroContacto numero de contacto.
 	 * @param nivelIngles nivel de ingles.
 	 * @param hojaVida nombre del archivo de la hoja de vida.
-	 * @param listCompetencia lista de competencias.
+	 * @param listaCompetencias lista de competencias.
 	 */
 	public Candidato(String nombreApellidos, String numeroContacto, boolean nivelIngles, String hojaVida,
-			ArrayList<Competencia> listCompetencia) {
+			ArrayList<Competencia> listaCompetencias) {
 		super();
 		this.nombreApellidos = nombreApellidos;
 		this.numeroContacto = numeroContacto;
 		this.nivelIngles = nivelIngles;
 		this.hojaVida = hojaVida;
-		this.listCompetencia = listCompetencia;
+		this.listaCompetencias = listaCompetencias;
 	}
 	
 	/**
@@ -113,17 +113,17 @@ public class Candidato {
 	}
 
 	/**
-	 * @return the listCompetencia
+	 * @return the listaCompetencias
 	 */
-	public ArrayList<Competencia> getListCompetencia() {
-		return listCompetencia;
+	public ArrayList<Competencia> getListaCompetencias() {
+		return listaCompetencias;
 	}
 
 	/**
-	 * @param listCompetencia the listCompetencia to set
+	 * @param listaCompetencias the listaCompetencias to set
 	 */
-	public void setListCompetencia(ArrayList<Competencia> listCompetencia) {
-		this.listCompetencia = listCompetencia;
+	public void setListaCompetencias(ArrayList<Competencia> listaCompetencias) {
+		this.listaCompetencias = listaCompetencias;
 	}
 
 	/**

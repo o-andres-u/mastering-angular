@@ -6,5 +6,5 @@ public interface IAlmacenarArchivoService {
 
 	 void inicializarCarpetaAlmacenamiento();
 
-	 void AlmacenarArchivo(MultipartFile file);
+	 void AlmacenarArchivo(MultipartFile file, String nombreArchivo);
 }

@@ -31,8 +31,8 @@ public class HojaVidaDTOService {
 		hojaVidaDto.setTelefono(candidato.getNumeroContacto());
 		hojaVidaDto.setNivelIngles(candidato.isNivelIngles() ? "3" :  "1"); // TODO
 		ArrayList<CompetenciaWebDTO> listaCompetencias = new ArrayList<>();
-		if (candidato.getListCompetencia() != null) {			
-			for (Competencia comp : candidato.getListCompetencia()) {
+		if (candidato.getListaCompetencias() != null) {			
+			for (Competencia comp : candidato.getListaCompetencias()) {
 				CompetenciaWebDTO c = new CompetenciaWebDTO();
 				c.setNivel("ALTO".equals(comp.getNivelCompetencia()) ? 3 : 0);// TODO
 				c.setNombre(comp.getDescripcionCompetencia());

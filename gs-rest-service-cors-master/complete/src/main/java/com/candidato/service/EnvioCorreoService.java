@@ -1,5 +1,7 @@
 package com.candidato.service;
 
+import java.io.File;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.candidato.entity.Candidato;
@@ -37,6 +40,7 @@ public class EnvioCorreoService implements IEnvioCorreoService {
 	
 
 	@Override
+	@Async
 	public void enviarEmail(Candidato candidato) {
 		MimeMessage message = sender.createMimeMessage();
 
@@ -49,8 +53,8 @@ public class EnvioCorreoService implements IEnvioCorreoService {
 			helper.setText(msj, true);
 			helper.setSubject(subjectEmail + candidato.getNombreApellidos());
 			
-			FileSystemResource file = new FileSystemResource(location + "/" +candidato.getHojaVida());
-			helper.addAttachment(candidato.getHojaVida(), file);
+			FileSystemResource file = new FileSystemResource(new File(location + File.separator +candidato.getHojaVida()));
+			helper.addAttachment(file.getFilename(), file);
 			
 			sender.send(message);
 		} catch (MessagingException e) {
@@ -62,8 +66,8 @@ public class EnvioCorreoService implements IEnvioCorreoService {
 	
 	private String getCompetencias (Candidato candidato) {
 		String competencias = "";
-		if (candidato.getListCompetencia() != null) {			
-			for (Competencia comp : candidato.getListCompetencia()) {
+		if (candidato.getListaCompetencias()!= null) {			
+			for (Competencia comp : candidato.getListaCompetencias()) {
 				competencias += comp.getDescripcionCompetencia() + "<BR>";
 			}
 		}

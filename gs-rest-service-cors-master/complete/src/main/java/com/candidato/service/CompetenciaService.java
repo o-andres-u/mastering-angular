@@ -11,7 +11,6 @@ import com.candidato.entity.Candidato;
 import com.candidato.entity.CandidatoResponse;
 import com.candidato.entity.CompetenciaResponse;
 import com.candidato.interfaces.ICompetenciaService;
-import com.candidato.interfaces.IEnvioCorreoService;
 import com.candidato.service.recursoshumanos.RecursosHumanosWebServiceClient;
 
 import https.recursoshumanos.ConsultarCompetenciasLaboralesResponse;
@@ -36,8 +35,6 @@ public class CompetenciaService implements ICompetenciaService{
 	@Autowired
 	protected HojaVidaDTOService hojaVidaDTO;
 	
-	@Autowired
-	protected IEnvioCorreoService correoService;
 
 	@Override
     public CompetenciaResponse getCompetenciaCandidato() {
